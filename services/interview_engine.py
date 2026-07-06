@@ -56,18 +56,65 @@ class InterviewEngine:
         ]
         return evaluation
 
+    def _get_next_question_doc(self, documents: list[dict], history: list[dict]) -> dict | None:
+        if not documents:
+            return None
+        asked_questions = set()
+        for h in history:
+            content = h.get("content", "").lower()
+            for doc in documents:
+                q = doc.get("question", "").lower()
+                if q in content:
+                    asked_questions.add(doc.get("question"))
+        for doc in documents:
+            if doc.get("question") not in asked_questions:
+                return doc
+        return documents[0]
+
     def _generate_with_local_fallback(self, message: str, profile: dict, documents: list[dict], history: list[dict]) -> str:
-        if not self._is_interview_related(message):
+        if not self._is_interview_related(message, history):
             return "I only answer interview-preparation questions. Tell me your target role, company, or interview type."
 
         role = self._extract_role(message, profile)
         company = self._extract_company(message, profile)
         topic = self._extract_topic(message, documents)
         experience = profile.get("experience_level", "your experience level")
-        recent_user_messages = [item.get("content", "") for item in history[-6:] if item.get("role") == "user"]
-        repeated_prompt = sum(1 for item in recent_user_messages if self._normalize_text(item) == self._normalize_text(message)) > 1
+        
+        # 1. Check if the user is answering a question we previously asked
+        last_question_doc = None
+        if history:
+            for h in reversed(history):
+                if h.get("role") == "assistant":
+                    assistant_text = h.get("content", "").lower()
+                    # Look up if this text matches any of our RAG documents' questions
+                    for doc in self.rag_service.documents:
+                        q_text = doc.get("question", "").lower()
+                        if q_text and q_text in assistant_text:
+                            last_question_doc = doc
+                            break
+                    break
+        
+        # If the user is submitting an answer to a question we asked, evaluate it
+        is_greeting = self._looks_like_greeting(message)
+        is_navigating = any(word in message.lower() for word in ["next", "more", "continue", "another", "skip"])
+        
+        if last_question_doc and not is_greeting and not is_navigating and len(message.split()) > 3:
+            expected_answer = last_question_doc.get("answer", "")
+            eval_res = self.score_service.score_response(message, [expected_answer])
+            strengths_str = ", ".join(eval_res.get("strengths", []))
+            weaknesses_str = ", ".join(eval_res.get("weaknesses", []))
+            
+            return (
+                f"Thank you for your response! Here is my feedback on your answer:\n\n"
+                f"📊 **Score**: {eval_res['overall_score']}/100\n"
+                f"✅ **Strengths**: {strengths_str or 'None identified'}\n"
+                f"❌ **Areas for Improvement**: {weaknesses_str or 'Keep up the good work!'}\n\n"
+                f"💡 **Suggested Answer Guide**: {expected_answer}\n\n"
+                f"Would you like to try another question? You can ask for a topic (e.g., 'give me a question on AI' or 'system design')."
+            )
 
-        if self._looks_like_greeting(message) or len(message.split()) <= 3:
+        # 2. Greeting Handler
+        if is_greeting or (len(message.split()) <= 3 and not is_navigating):
             return self._pick_variant(
                 [
                     f"Hi there! What role at {company} are you preparing for, and what is your experience level?",
@@ -78,58 +125,34 @@ class InterviewEngine:
                 history,
             )
 
-        if any(word in message.lower() for word in ["question", "interview", "mock", "questions"]):
-            if topic:
-                return self._pick_variant(
-                    [
-                        f"For {company}, here is a {topic} interview question: Explain the core concept of {topic} and how you have used it in a project.",
-                        f"Here is a technical {topic} question for {company}: What are the key trade-offs and performance bottlenecks when implementing {topic}?",
-                        f"Let's practice a {topic} question for {company}: Walk me through a challenging problem you solved using {topic}.",
-                    ],
-                    message,
-                    history,
+        # 3. Question Request Handler
+        is_requesting_question = is_navigating or any(word in message.lower() for word in ["question", "interview", "mock", "questions", "test", "practice"])
+        if is_requesting_question:
+            retrieved_docs = documents
+            if not retrieved_docs and topic:
+                retrieved_docs = self.rag_service.retrieve(topic, profile=profile, top_k=5)
+            if not retrieved_docs:
+                retrieved_docs = self.rag_service.retrieve("", profile=profile, top_k=5)
+                
+            selected_doc = self._get_next_question_doc(retrieved_docs, history)
+            if selected_doc:
+                topic_label = selected_doc.get("topic", topic or "interview").upper()
+                return (
+                    f"Here is a **{topic_label}** question for you:\n\n"
+                    f"👉 **{selected_doc.get('question')}**\n\n"
+                    f"Take your time to formulate an answer and type it below. I will evaluate your response!"
                 )
-            return self._pick_variant(
-                [
-                    f"For a {role} interview at {company}, try this question: Tell me about a time you solved a difficult problem.",
-                    f"Here’s a solid behavioral question for {role} at {company}: Describe a challenge you handled and the outcome.",
-                    f"Let’s start with this for {role} at {company}: Tell me about a time you solved a difficult technical problem.",
-                ],
-                message,
-                history,
+            
+            # Local fallback if JSON documents are missing
+            return (
+                "Here is a behavioral question for you:\n\n"
+                "👉 **Tell me about a time you solved a challenging technical problem.**\n\n"
+                "Type your response below and I'll grade it!"
             )
 
-        if any(word in message.lower() for word in ["answer", "response", "feedback", "evaluate"]):
-            return self._pick_variant(
-                [
-                    f"For a {role} at {company}, use a clear structure: situation, action, result, and one measurable outcome.",
-                    f"A strong answer for {role} should be structured, concise, and end with a clear business impact metric.",
-                    f"Keep your answer focused on situation, action, result, plus one clear impact metric.",
-                ],
-                message,
-                history,
-            )
+        # 4. Profile / Job Update Handler
+        return f"Got it! I will tailor the interview coaching for a {role} role at {company} ({experience}). Would you like to start a mock interview? Just type 'ask me a question' or select a topic to begin."
 
-        if repeated_prompt:
-            return self._pick_variant(
-                [
-                    f"We’ve covered that already, so let’s move forward: for {role} at {company}, what is your biggest interview concern right now?",
-                    f"Let’s shift to the next step for {role}: what part of the interview at {company} feels hardest to you?",
-                    f"To keep this useful, tell me the interview area you want to improve first: technical, HR, behavioral, or coding.",
-                ],
-                message,
-                history,
-            )
-
-        return self._pick_variant(
-            [
-                f"Understood. For {role} at {company}, I’ll keep this focused on interview prep for {experience}.",
-                f"Got it. I’ll tailor the next steps for {role} at {company} based on {experience}.",
-                f"Perfect. I’ll keep the coaching targeted to {role} at {company} and your experience level.",
-            ],
-            message,
-            history,
-        )
 
     def _generate_with_model_or_fallback(self, message: str, profile: dict, documents: list[dict], history: list[dict]) -> str:
         prompt = self._build_prompt(message, profile, documents)
@@ -277,7 +300,9 @@ class InterviewEngine:
                 return value
         return profile.get("target_role", "your target role")
 
-    def _is_interview_related(self, message: str) -> bool:
+    def _is_interview_related(self, message: str, history: list[dict] | None = None) -> bool:
+        if history and len(history) > 0:
+            return True
         lowered = message.lower()
         keywords = [
             "interview",
@@ -294,6 +319,15 @@ class InterviewEngine:
             "prepar",
             "feedback",
             "readiness",
+            "hi",
+            "hello",
+            "hey",
+            "start",
+            "go",
+            "next",
+            "more",
+            "yes",
+            "no",
         ]
         return any(keyword in lowered for keyword in keywords)
 

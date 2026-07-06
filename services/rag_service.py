@@ -31,9 +31,28 @@ class RAGService:
         # Split query and profile into clean whole-words
         query_words = set(re.findall(r'[a-z0-9.+#/-]+', query.lower()))
         
-        # Filter out common prepositions/conjunctions to prevent false-positive matches (like "on" matching "action")
-        stop_words = {"a", "an", "the", "and", "or", "but", "if", "then", "of", "at", "by", "for", "with", "about", "to", "in", "on", "from", "give", "me", "show", "get"}
+        # Filter out common prepositions, conjunctions, pronouns, verbs, and helper words to prevent false-positive matches
+        stop_words = {
+            "a", "an", "the", "and", "or", "but", "if", "then", "of", "at", "by", "for", 
+            "with", "about", "to", "in", "on", "from", "give", "me", "show", "get", "i", 
+            "want", "questions", "question", "based", "tell", "ask", "please", "find", 
+            "you", "your", "my", "we", "us", "they", "them", "he", "she", "it", "is", 
+            "are", "am", "was", "were", "be", "been", "do", "does", "did", "have", "has", 
+            "had", "can", "could", "would", "should", "some", "any", "more", "next", "like"
+        }
         query_words = query_words - stop_words
+        
+        # Map multi-word phrases to keywords used in the database
+        query_lower = query.lower()
+        if "artificial intelligence" in query_lower:
+            query_words.add("ai")
+        if "machine learning" in query_lower:
+            query_words.add("ml")
+            query_words.add("ai")
+        if "system design" in query_lower:
+            query_words.add("system_design")
+        if "data science" in query_lower:
+            query_words.add("data_science")
         
         profile_words = set()
         if profile:
@@ -67,3 +86,4 @@ class RAGService:
 
         scored.sort(key=lambda item: item[0], reverse=True)
         return [item[1] for item in scored[:top_k]]
+
