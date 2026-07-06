@@ -163,7 +163,7 @@ function saveChatHistory() {
 
 function setInitialCoachState() {
   if (!chatWindow || chatWindow.querySelectorAll('.chat-msg-row').length > 0) return;
-  appendMessage('Hi. Tell me your target job role and experience level, and I’ll guide you step by step with one or two questions at a time.', 'assistant');
+  appendMessage('Hi! I am your AI Interview Trainer Agent. I generate tailored question sets and preparation strategies based on your profile name, experience level, and job role. Ask me for questions on a topic (like SQL, AI, or DSA) or type "mock test" to start a mock interview!', 'assistant');
 }
 
 function currentTheme() {

@@ -65,7 +65,7 @@
   {
     "topic": "ai",
     "question": "What is the difference between cosine similarity and Euclidean distance for embeddings?",
-    "answer": "Cosine similarity measures the angle between two vectors, capturing directional similarity regardless of magnitude \u2014 useful when vector length varies. Euclidean distance measures straight-line distance and is sensitive to magnitude. Text embeddings typically use cosine similarity since direction encodes semantic meaning better than scale.",
+    "answer": "Cosine similarity measures the angle between two vectors, capturing directional similarity regardless of magnitude — useful when vector length varies. Euclidean distance measures straight-line distance and is sensitive to magnitude. Text embeddings typically use cosine similarity since direction encodes semantic meaning better than scale.",
     "tags": [
       "ai",
       "interview"
@@ -218,7 +218,7 @@
   {
     "topic": "data_science",
     "question": "Explain temperature and top-p sampling in LLM generation.",
-    "answer": "Temperature scales the probability distribution before sampling \u2014 lower values make outputs more deterministic/focused, higher values increase randomness/creativity. Top-p (nucleus) sampling restricts sampling to the smallest set of tokens whose cumulative probability exceeds p, filtering out unlikely tokens while retaining diversity.",
+    "answer": "Temperature scales the probability distribution before sampling — lower values make outputs more deterministic/focused, higher values increase randomness/creativity. Top-p (nucleus) sampling restricts sampling to the smallest set of tokens whose cumulative probability exceeds p, filtering out unlikely tokens while retaining diversity.",
     "tags": [
       "data_science",
       "interview"
@@ -362,7 +362,7 @@
   {
     "topic": "data_science",
     "question": "What is feature engineering and why is it important?",
-    "answer": "Feature engineering is the process of creating, transforming, or selecting variables to improve model performance \u2014 e.g., encoding categoricals, creating interaction terms, scaling, extracting date features. Good features often matter more than model choice for real-world performance.",
+    "answer": "Feature engineering is the process of creating, transforming, or selecting variables to improve model performance — e.g., encoding categoricals, creating interaction terms, scaling, extracting date features. Good features often matter more than model choice for real-world performance.",
     "tags": [
       "data_science",
       "interview"
@@ -380,7 +380,7 @@
   {
     "topic": "data_science",
     "question": "What is survivorship bias?",
-    "answer": "It's a logical error of focusing only on entities that 'survived' a selection process while overlooking those that didn't, leading to skewed conclusions \u2014 e.g., analyzing only successful companies' strategies while ignoring failed ones with similar strategies.",
+    "answer": "It's a logical error of focusing only on entities that 'survived' a selection process while overlooking those that didn't, leading to skewed conclusions — e.g., analyzing only successful companies' strategies while ignoring failed ones with similar strategies.",
     "tags": [
       "data_science",
       "interview"
@@ -434,7 +434,7 @@
   {
     "topic": "hr",
     "question": "Why do you want to work for this company?",
-    "answer": "Show you've researched the company \u2014 mention its mission, products, culture, or recent achievements \u2014 and connect it to your career goals and values, demonstrating genuine, specific interest rather than a generic answer.",
+    "answer": "Show you've researched the company — mention its mission, products, culture, or recent achievements — and connect it to your career goals and values, demonstrating genuine, specific interest rather than a generic answer.",
     "tags": [
       "hr",
       "interview"
@@ -461,7 +461,7 @@
   {
     "topic": "hr",
     "question": "Where do you see yourself in 5 years?",
-    "answer": "Describe realistic growth aligned with the role and company trajectory \u2014 e.g., deepening expertise, taking on more responsibility \u2014 showing ambition balanced with commitment to the path this role offers.",
+    "answer": "Describe realistic growth aligned with the role and company trajectory — e.g., deepening expertise, taking on more responsibility — showing ambition balanced with commitment to the path this role offers.",
     "tags": [
       "hr",
       "interview"
@@ -497,7 +497,7 @@
   {
     "topic": "hr",
     "question": "What motivates you?",
-    "answer": "Share genuine intrinsic and extrinsic motivators relevant to the workplace \u2014 e.g., solving meaningful problems, learning, collaboration, impact \u2014 supported by a short example of when that motivation drove strong results.",
+    "answer": "Share genuine intrinsic and extrinsic motivators relevant to the workplace — e.g., solving meaningful problems, learning, collaboration, impact — supported by a short example of when that motivation drove strong results.",
     "tags": [
       "hr",
       "interview"
@@ -524,7 +524,7 @@
   {
     "topic": "hr",
     "question": "How do you prioritize tasks when you have multiple deadlines?",
-    "answer": "Describe a clear method \u2014 e.g., assessing urgency/impact, using a prioritization framework, communicating proactively with stakeholders about tradeoffs \u2014 ideally illustrated with a real example.",
+    "answer": "Describe a clear method — e.g., assessing urgency/impact, using a prioritization framework, communicating proactively with stakeholders about tradeoffs — ideally illustrated with a real example.",
     "tags": [
       "hr",
       "interview"
@@ -560,7 +560,7 @@
   {
     "topic": "hr",
     "question": "Do you prefer working independently or in a team?",
-    "answer": "Show adaptability \u2014 explain that you can thrive in both settings depending on the task, with a brief example of success in each, rather than picking one exclusively.",
+    "answer": "Show adaptability — explain that you can thrive in both settings depending on the task, with a brief example of success in each, rather than picking one exclusively.",
     "tags": [
       "hr",
       "interview"
@@ -596,7 +596,7 @@
   {
     "topic": "system_design",
     "question": "Do you have any questions for us?",
-    "answer": "Always have thoughtful questions prepared \u2014 about team structure, success metrics for the role, growth opportunities, or company culture \u2014 showing genuine engagement and curiosity.",
+    "answer": "Always have thoughtful questions prepared — about team structure, success metrics for the role, growth opportunities, or company culture — showing genuine engagement and curiosity.",
     "tags": [
       "system_design",
       "interview"
@@ -731,7 +731,7 @@
   {
     "topic": "system_design",
     "question": "What is idempotency and why does it matter in distributed systems?",
-    "answer": "An idempotent operation produces the same result no matter how many times it's applied. It's crucial in distributed systems because network failures can cause retries \u2014 idempotency (e.g., via unique request IDs) prevents duplicate side effects like double-charging a payment.",
+    "answer": "An idempotent operation produces the same result no matter how many times it's applied. It's crucial in distributed systems because network failures can cause retries — idempotency (e.g., via unique request IDs) prevents duplicate side effects like double-charging a payment.",
     "tags": [
       "system_design",
       "interview"
@@ -740,7 +740,7 @@
   {
     "topic": "system_design",
     "question": "What is the difference between a monolith and microservices architecture?",
-    "answer": "A monolith is a single deployable unit containing all application logic \u2014 simpler to develop/deploy initially but harder to scale/maintain as it grows. Microservices split functionality into independently deployable services, improving scalability and team autonomy at the cost of operational complexity (networking, data consistency, deployment).",
+    "answer": "A monolith is a single deployable unit containing all application logic — simpler to develop/deploy initially but harder to scale/maintain as it grows. Microservices split functionality into independently deployable services, improving scalability and team autonomy at the cost of operational complexity (networking, data consistency, deployment).",
     "tags": [
       "system_design",
       "interview"
@@ -812,7 +812,7 @@
   {
     "topic": "dsa",
     "question": "Explain binary search and its time complexity.",
-    "answer": "Binary search repeatedly halves a sorted search space by comparing the target to the middle element, achieving O(log n) time complexity, compared to O(n) for linear search \u2014 but it requires the data to be sorted.",
+    "answer": "Binary search repeatedly halves a sorted search space by comparing the target to the middle element, achieving O(log n) time complexity, compared to O(n) for linear search — but it requires the data to be sorted.",
     "tags": [
       "dsa",
       "interview"
@@ -830,7 +830,7 @@
   {
     "topic": "dsa",
     "question": "What is the difference between a stack and a queue?",
-    "answer": "A stack is LIFO (Last In, First Out) \u2014 used for things like function call stacks and undo operations. A queue is FIFO (First In, First Out) \u2014 used for things like task scheduling and BFS traversal.",
+    "answer": "A stack is LIFO (Last In, First Out) — used for things like function call stacks and undo operations. A queue is FIFO (First In, First Out) — used for things like task scheduling and BFS traversal.",
     "tags": [
       "dsa",
       "interview"
@@ -857,7 +857,7 @@
   {
     "topic": "dsa",
     "question": "What is dynamic programming?",
-    "answer": "Dynamic programming solves complex problems by breaking them into overlapping subproblems, solving each once, and storing results (memoization or tabulation) to avoid redundant computation \u2014 turning exponential-time brute-force solutions into polynomial time.",
+    "answer": "Dynamic programming solves complex problems by breaking them into overlapping subproblems, solving each once, and storing results (memoization or tabulation) to avoid redundant computation — turning exponential-time brute-force solutions into polynomial time.",
     "tags": [
       "dsa",
       "interview"
@@ -893,7 +893,7 @@
   {
     "topic": "dsa",
     "question": "What is the two-pointer technique?",
-    "answer": "It uses two indices moving through a data structure (often from opposite ends or at different speeds) to solve problems in O(n) time instead of O(n^2) \u2014 common in sorted array problems, palindrome checks, and cycle detection (e.g., Floyd's algorithm).",
+    "answer": "It uses two indices moving through a data structure (often from opposite ends or at different speeds) to solve problems in O(n) time instead of O(n^2) — common in sorted array problems, palindrome checks, and cycle detection (e.g., Floyd's algorithm).",
     "tags": [
       "dsa",
       "interview"
@@ -929,7 +929,7 @@
   {
     "topic": "dsa",
     "question": "What is topological sorting?",
-    "answer": "Topological sort orders the vertices of a directed acyclic graph (DAG) such that for every edge u\u2192v, u comes before v. It's used for scheduling tasks with dependencies, and is typically computed via DFS or Kahn's algorithm (BFS with in-degree tracking).",
+    "answer": "Topological sort orders the vertices of a directed acyclic graph (DAG) such that for every edge u→v, u comes before v. It's used for scheduling tasks with dependencies, and is typically computed via DFS or Kahn's algorithm (BFS with in-degree tracking).",
     "tags": [
       "dsa",
       "interview"
@@ -938,7 +938,7 @@
   {
     "topic": "dsa",
     "question": "What is the difference between a Depth-First Search and backtracking?",
-    "answer": "DFS is a traversal strategy, exploring paths as deep as possible. Backtracking is a refinement of DFS used for constraint-satisfaction/search problems where invalid partial solutions are pruned early ('backtracked') to avoid exploring the full search space \u2014 e.g., N-Queens, Sudoku solving.",
+    "answer": "DFS is a traversal strategy, exploring paths as deep as possible. Backtracking is a refinement of DFS used for constraint-satisfaction/search problems where invalid partial solutions are pruned early ('backtracked') to avoid exploring the full search space — e.g., N-Queens, Sudoku solving.",
     "tags": [
       "dsa",
       "interview"
@@ -956,7 +956,7 @@
   {
     "topic": "os",
     "question": "What is an amortized time complexity?",
-    "answer": "Amortized analysis averages the cost of an operation over a sequence of operations, even if individual operations occasionally take longer \u2014 e.g., dynamic array resizing is O(n) occasionally but O(1) amortized per insertion, since resizes happen infrequently relative to the number of insertions.",
+    "answer": "Amortized analysis averages the cost of an operation over a sequence of operations, even if individual operations occasionally take longer — e.g., dynamic array resizing is O(n) occasionally but O(1) amortized per insertion, since resizes happen infrequently relative to the number of insertions.",
     "tags": [
       "os",
       "interview"
@@ -992,7 +992,7 @@
   {
     "topic": "os",
     "question": "What is a deadlock and what are its necessary conditions?",
-    "answer": "A deadlock is a state where processes are stuck waiting indefinitely for resources held by each other. The four necessary conditions are: mutual exclusion, hold and wait, no preemption, and circular wait \u2014 all must hold simultaneously for deadlock to occur.",
+    "answer": "A deadlock is a state where processes are stuck waiting indefinitely for resources held by each other. The four necessary conditions are: mutual exclusion, hold and wait, no preemption, and circular wait — all must hold simultaneously for deadlock to occur.",
     "tags": [
       "os",
       "interview"
@@ -1100,7 +1100,7 @@
   {
     "topic": "os",
     "question": "What is the difference between kernel mode and user mode?",
-    "answer": "Kernel mode allows unrestricted access to hardware and system resources, used by the OS kernel for critical operations. User mode restricts access to protect system stability/security, requiring system calls to request kernel services \u2014 this separation prevents user programs from crashing or compromising the whole system.",
+    "answer": "Kernel mode allows unrestricted access to hardware and system resources, used by the OS kernel for critical operations. User mode restricts access to protect system stability/security, requiring system calls to request kernel services — this separation prevents user programs from crashing or compromising the whole system.",
     "tags": [
       "os",
       "interview"
@@ -1244,7 +1244,7 @@
   {
     "topic": "dbms",
     "question": "What are the different types of database isolation levels?",
-    "answer": "Read Uncommitted (lowest, allows dirty reads), Read Committed (prevents dirty reads), Repeatable Read (prevents dirty and non-repeatable reads), and Serializable (highest, prevents dirty reads, non-repeatable reads, and phantom reads) \u2014 higher isolation reduces concurrency anomalies but can reduce throughput.",
+    "answer": "Read Uncommitted (lowest, allows dirty reads), Read Committed (prevents dirty reads), Repeatable Read (prevents dirty and non-repeatable reads), and Serializable (highest, prevents dirty reads, non-repeatable reads, and phantom reads) — higher isolation reduces concurrency anomalies but can reduce throughput.",
     "tags": [
       "dbms",
       "interview"
@@ -1307,7 +1307,7 @@
   {
     "topic": "dbms",
     "question": "What is the N+1 query problem and how do you avoid it?",
-    "answer": "It occurs when an application executes one query to fetch a list of records, then an additional query per record to fetch related data, resulting in N+1 total queries instead of a single optimized join or batch query \u2014 avoided by using eager loading, JOINs, or batched IN queries.",
+    "answer": "It occurs when an application executes one query to fetch a list of records, then an additional query per record to fetch related data, resulting in N+1 total queries instead of a single optimized join or batch query — avoided by using eager loading, JOINs, or batched IN queries.",
     "tags": [
       "dbms",
       "interview"
@@ -1319,6 +1319,519 @@
     "answer": "A natural key is a real-world attribute that uniquely identifies a record (e.g., email address, SSN), while a surrogate key is a system-generated, meaningless identifier (e.g., auto-increment ID or UUID) used purely to uniquely identify rows, providing stability even if natural attributes change.",
     "tags": [
       "dbms",
+      "interview"
+    ]
+  },
+  {
+    "topic": "sql",
+    "question": "What is the difference between INNER JOIN, LEFT JOIN, RIGHT JOIN, and FULL OUTER JOIN?",
+    "answer": "INNER JOIN returns only matching rows from both tables. LEFT JOIN returns all rows from the left table and matching rows from the right (NULLs for non-matches). RIGHT JOIN is the opposite. FULL OUTER JOIN returns all rows from both tables, with NULLs where there is no match.",
+    "tags": [
+      "sql",
+      "interview"
+    ]
+  },
+  {
+    "topic": "sql",
+    "question": "What is normalization and what are its different forms?",
+    "answer": "Normalization is the process of organizing data to reduce redundancy. 1NF eliminates repeating groups. 2NF removes partial dependencies. 3NF removes transitive dependencies. BCNF ensures every determinant is a candidate key. Higher forms (4NF, 5NF) address multi-valued and join dependencies.",
+    "tags": [
+      "sql",
+      "interview"
+    ]
+  },
+  {
+    "topic": "sql",
+    "question": "Explain the difference between WHERE and HAVING clauses.",
+    "answer": "WHERE filters rows before grouping (applied to individual rows). HAVING filters groups after GROUP BY is applied (used with aggregate functions like COUNT, SUM, AVG). WHERE cannot use aggregate functions, HAVING can.",
+    "tags": [
+      "sql",
+      "interview"
+    ]
+  },
+  {
+    "topic": "sql",
+    "question": "What are indexes in SQL and how do they improve performance?",
+    "answer": "Indexes are data structures that improve query speed by allowing the database engine to find rows without scanning the entire table. They work like a book index. Common types include B-tree, hash, and bitmap indexes. While they speed up reads, they slow down writes due to index maintenance overhead.",
+    "tags": [
+      "sql",
+      "interview"
+    ]
+  },
+  {
+    "topic": "sql",
+    "question": "What are stored procedures and how do they differ from functions?",
+    "answer": "Stored procedures are precompiled SQL statements stored in the database that can accept parameters, perform operations, and return results. Functions must return a value and can be used in SELECT statements. Procedures can modify database state; functions typically cannot.",
+    "tags": [
+      "sql",
+      "interview"
+    ]
+  },
+  {
+    "topic": "sql",
+    "question": "Explain ACID properties in database transactions.",
+    "answer": "Atomicity ensures all operations in a transaction complete or none do. Consistency ensures the database moves from one valid state to another. Isolation ensures concurrent transactions do not interfere with each other. Durability ensures committed transactions persist even after system failure.",
+    "tags": [
+      "sql",
+      "interview"
+    ]
+  },
+  {
+    "topic": "sql",
+    "question": "What is a subquery and when would you use one?",
+    "answer": "A subquery is a query nested inside another query (SELECT, INSERT, UPDATE, DELETE). Use subqueries when you need to filter results based on another query result, compute intermediate values, or check existence of related data. They can be correlated (reference outer query) or non-correlated.",
+    "tags": [
+      "sql",
+      "interview"
+    ]
+  },
+  {
+    "topic": "sql",
+    "question": "Explain the concept of database views and their advantages.",
+    "answer": "A view is a virtual table defined by a SQL query. Views simplify complex queries, provide security by restricting access to specific columns/rows, ensure data consistency, and abstract the underlying table structure. Materialized views store results physically for better performance.",
+    "tags": [
+      "sql",
+      "interview"
+    ]
+  },
+  {
+    "topic": "sql",
+    "question": "What are triggers in SQL and when should you use them?",
+    "answer": "Triggers are special stored procedures that automatically execute in response to events (INSERT, UPDATE, DELETE) on a table. Use them for auditing changes, enforcing complex business rules, maintaining derived data, and cascading operations. Avoid overusing triggers as they can make debugging difficult.",
+    "tags": [
+      "sql",
+      "interview"
+    ]
+  },
+  {
+    "topic": "python",
+    "question": "What is the difference between a list and a tuple in Python?",
+    "answer": "Lists are mutable (can be changed after creation) while tuples are immutable. Lists use square brackets [], tuples use parentheses (). Tuples are faster and can be used as dictionary keys. Lists are better when you need to modify the collection.",
+    "tags": [
+      "python",
+      "interview"
+    ]
+  },
+  {
+    "topic": "python",
+    "question": "Explain decorators in Python with an example use case.",
+    "answer": "Decorators are functions that modify the behavior of other functions without changing their source code. They use the @decorator syntax. Common uses include logging, authentication checks, caching (memoization), and measuring execution time. They implement the decorator design pattern.",
+    "tags": [
+      "python",
+      "interview"
+    ]
+  },
+  {
+    "topic": "python",
+    "question": "What are generators in Python and why are they useful?",
+    "answer": "Generators are functions that use yield instead of return to produce a sequence of values lazily. They do not store the entire sequence in memory, making them memory-efficient for large datasets. They implement the iterator protocol and are ideal for streaming data processing.",
+    "tags": [
+      "python",
+      "interview"
+    ]
+  },
+  {
+    "topic": "python",
+    "question": "Explain the GIL (Global Interpreter Lock) in Python.",
+    "answer": "The GIL is a mutex that allows only one thread to execute Python bytecode at a time, even on multi-core machines. This limits true parallelism for CPU-bound tasks. Workarounds include using multiprocessing, C extensions, or async I/O for I/O-bound tasks.",
+    "tags": [
+      "python",
+      "interview"
+    ]
+  },
+  {
+    "topic": "python",
+    "question": "What is the difference between deep copy and shallow copy?",
+    "answer": "Shallow copy creates a new object but references the same nested objects. Deep copy creates a new object and recursively copies all nested objects. Use copy.copy() for shallow and copy.deepcopy() for deep copy. Deep copy is needed when modifying nested mutable objects independently.",
+    "tags": [
+      "python",
+      "interview"
+    ]
+  },
+  {
+    "topic": "python",
+    "question": "Explain list comprehension and when to use it.",
+    "answer": "List comprehension is a concise way to create lists: [expression for item in iterable if condition]. It is more readable and faster than equivalent for loops. Use it for simple transformations and filters. For complex logic, regular for loops are more readable.",
+    "tags": [
+      "python",
+      "interview"
+    ]
+  },
+  {
+    "topic": "python",
+    "question": "What are Python magic methods (dunder methods)?",
+    "answer": "Magic methods are special methods with double underscores like __init__, __str__, __repr__, __add__, __len__. They allow custom classes to emulate built-in types and support operators, string representation, iteration, context managers, and more. They are called automatically by Python.",
+    "tags": [
+      "python",
+      "interview"
+    ]
+  },
+  {
+    "topic": "python",
+    "question": "Explain the difference between args and kwargs in Python.",
+    "answer": "*args allows passing a variable number of positional arguments as a tuple. **kwargs allows passing a variable number of keyword arguments as a dictionary. They provide flexibility in function definitions and are commonly used in decorators and wrapper functions.",
+    "tags": [
+      "python",
+      "interview"
+    ]
+  },
+  {
+    "topic": "python",
+    "question": "What is the difference between is and == in Python?",
+    "answer": "== compares values (equality). is compares identity (whether two variables point to the same object in memory). Use == for value comparison and is for checking None (if x is None). Small integers and interned strings may share identity due to Python optimization.",
+    "tags": [
+      "python",
+      "interview"
+    ]
+  },
+  {
+    "topic": "python",
+    "question": "Explain exception handling in Python with try-except-finally.",
+    "answer": "try block contains code that might raise exceptions. except catches specific exceptions and handles them. finally always executes regardless of whether an exception occurred (cleanup code). else block runs if no exception was raised. Best practice is to catch specific exceptions, not bare except.",
+    "tags": [
+      "python",
+      "interview"
+    ]
+  },
+  {
+    "topic": "java",
+    "question": "What is the difference between an interface and an abstract class in Java?",
+    "answer": "Abstract classes can have both abstract and concrete methods, constructors, and instance variables. Interfaces (pre-Java 8) only have abstract methods. Post-Java 8, interfaces can have default and static methods. A class can implement multiple interfaces but extend only one abstract class.",
+    "tags": [
+      "java",
+      "interview"
+    ]
+  },
+  {
+    "topic": "java",
+    "question": "Explain the concept of multithreading in Java.",
+    "answer": "Multithreading allows concurrent execution of two or more threads. Threads can be created by extending Thread class or implementing Runnable interface. Java provides synchronization mechanisms (synchronized keyword, locks) to handle shared resources. The ExecutorService framework provides thread pool management.",
+    "tags": [
+      "java",
+      "interview"
+    ]
+  },
+  {
+    "topic": "java",
+    "question": "What are the differences between HashMap, TreeMap, and LinkedHashMap?",
+    "answer": "HashMap provides O(1) operations but no ordering. TreeMap provides O(log n) operations with natural key ordering. LinkedHashMap maintains insertion order with O(1) operations. HashMap allows one null key, TreeMap does not allow null keys if using natural ordering.",
+    "tags": [
+      "java",
+      "interview"
+    ]
+  },
+  {
+    "topic": "java",
+    "question": "Explain the Java memory model and garbage collection.",
+    "answer": "Java memory is divided into heap (objects), stack (method calls, local variables), and metaspace (class metadata). Garbage collection automatically reclaims memory from unreachable objects. Major GC algorithms include Serial, Parallel, CMS, G1, and ZGC, each with different performance characteristics.",
+    "tags": [
+      "java",
+      "interview"
+    ]
+  },
+  {
+    "topic": "java",
+    "question": "What is the difference between checked and unchecked exceptions?",
+    "answer": "Checked exceptions must be declared in method signature or handled with try-catch (e.g., IOException, SQLException). Unchecked exceptions extend RuntimeException and do not need explicit handling (e.g., NullPointerException, ArrayIndexOutOfBoundsException). Errors are also unchecked but indicate serious JVM problems.",
+    "tags": [
+      "java",
+      "interview"
+    ]
+  },
+  {
+    "topic": "oop",
+    "question": "Explain the four pillars of Object-Oriented Programming.",
+    "answer": "1. Encapsulation: bundling data and methods, hiding internal state. 2. Abstraction: exposing only essential features, hiding complexity. 3. Inheritance: creating new classes from existing ones for code reuse. 4. Polymorphism: same interface for different underlying forms (method overloading/overriding).",
+    "tags": [
+      "oop",
+      "interview"
+    ]
+  },
+  {
+    "topic": "oop",
+    "question": "What is the SOLID principle in software design?",
+    "answer": "S: Single Responsibility (one class, one job). O: Open/Closed (open for extension, closed for modification). L: Liskov Substitution (subtypes must be substitutable for base types). I: Interface Segregation (prefer small, specific interfaces). D: Dependency Inversion (depend on abstractions, not concretions).",
+    "tags": [
+      "oop",
+      "interview"
+    ]
+  },
+  {
+    "topic": "oop",
+    "question": "Explain design patterns: Singleton, Factory, and Observer.",
+    "answer": "Singleton ensures a class has only one instance. Factory creates objects without specifying exact class (decouples creation from usage). Observer defines one-to-many dependency where state changes notify all dependents. These patterns solve recurring design problems with proven solutions.",
+    "tags": [
+      "oop",
+      "interview"
+    ]
+  },
+  {
+    "topic": "oop",
+    "question": "What is the difference between composition and inheritance?",
+    "answer": "Inheritance creates an is-a relationship (Dog is-a Animal). Composition creates a has-a relationship (Car has-a Engine). Composition is generally preferred as it provides better flexibility, avoids fragile base class problems, and supports better encapsulation. Favor composition over inheritance.",
+    "tags": [
+      "oop",
+      "interview"
+    ]
+  },
+  {
+    "topic": "oop",
+    "question": "What is polymorphism and what are its types?",
+    "answer": "Polymorphism means many forms. Compile-time (static) polymorphism is achieved through method overloading and operator overloading. Runtime (dynamic) polymorphism is achieved through method overriding and virtual functions. It allows writing code that works with objects of different types through a common interface.",
+    "tags": [
+      "oop",
+      "interview"
+    ]
+  },
+  {
+    "topic": "cloud",
+    "question": "What is the difference between IaaS, PaaS, and SaaS?",
+    "answer": "IaaS provides virtualized computing resources (VMs, storage, networking) like AWS EC2. PaaS provides a platform for application development without managing infrastructure (Heroku, App Engine). SaaS delivers complete applications over the internet (Gmail, Salesforce). Each reduces management responsibility.",
+    "tags": [
+      "cloud",
+      "interview"
+    ]
+  },
+  {
+    "topic": "cloud",
+    "question": "Explain containerization and how Docker works.",
+    "answer": "Containerization packages applications with their dependencies into isolated containers that run consistently across environments. Docker uses OS-level virtualization with layered filesystem images. Containers are lighter than VMs, share the host OS kernel, and start in seconds. Dockerfile defines the build process.",
+    "tags": [
+      "cloud",
+      "interview"
+    ]
+  },
+  {
+    "topic": "cloud",
+    "question": "What is Kubernetes and why is it important?",
+    "answer": "Kubernetes is a container orchestration platform that automates deployment, scaling, and management of containerized applications. It provides service discovery, load balancing, self-healing, rolling updates, and secret management. Key concepts include pods, services, deployments, and namespaces.",
+    "tags": [
+      "cloud",
+      "interview"
+    ]
+  },
+  {
+    "topic": "cloud",
+    "question": "Explain CI/CD pipelines and their importance.",
+    "answer": "CI (Continuous Integration) automatically builds and tests code on every commit. CD (Continuous Delivery/Deployment) automatically deploys tested code to staging/production. CI/CD pipelines reduce manual errors, speed up releases, ensure code quality, and enable rapid iteration. Tools include Jenkins, GitHub Actions, GitLab CI.",
+    "tags": [
+      "cloud",
+      "interview"
+    ]
+  },
+  {
+    "topic": "cloud",
+    "question": "What is Infrastructure as Code (IaC) and name common tools.",
+    "answer": "IaC manages infrastructure through machine-readable configuration files instead of manual processes. Benefits include version control, reproducibility, consistency, and automation. Common tools include Terraform (multi-cloud), AWS CloudFormation, Ansible (configuration management), and Pulumi (programming languages).",
+    "tags": [
+      "cloud",
+      "interview"
+    ]
+  },
+  {
+    "topic": "networking",
+    "question": "Explain the OSI model and its 7 layers.",
+    "answer": "Physical: raw bits over medium. Data Link: frames, MAC addressing. Network: routing, IP addressing. Transport: end-to-end delivery (TCP/UDP). Session: connection management. Presentation: data formatting, encryption. Application: user-facing protocols (HTTP, FTP, SMTP). Each layer serves the one above it.",
+    "tags": [
+      "networking",
+      "interview"
+    ]
+  },
+  {
+    "topic": "networking",
+    "question": "What is the difference between TCP and UDP?",
+    "answer": "TCP is connection-oriented, reliable, ordered, with error checking and flow control (HTTP, FTP, email). UDP is connectionless, faster, no guaranteed delivery or ordering (DNS, streaming, gaming). TCP has higher overhead due to handshake and acknowledgments. Choose based on reliability vs speed needs.",
+    "tags": [
+      "networking",
+      "interview"
+    ]
+  },
+  {
+    "topic": "networking",
+    "question": "Explain how DNS works.",
+    "answer": "DNS translates domain names to IP addresses. Browser checks cache, then queries recursive resolver, which contacts root servers, TLD servers, and authoritative nameservers. The process is hierarchical. DNS records include A (IPv4), AAAA (IPv6), CNAME (alias), MX (mail), and NS (nameserver).",
+    "tags": [
+      "networking",
+      "interview"
+    ]
+  },
+  {
+    "topic": "networking",
+    "question": "What is the difference between HTTP and HTTPS?",
+    "answer": "HTTP transfers data in plain text, vulnerable to eavesdropping. HTTPS uses TLS/SSL encryption to secure data in transit. HTTPS requires an SSL certificate, uses port 443 (vs 80), and provides authentication, encryption, and integrity. All modern websites should use HTTPS.",
+    "tags": [
+      "networking",
+      "interview"
+    ]
+  },
+  {
+    "topic": "networking",
+    "question": "Explain REST API design principles.",
+    "answer": "REST uses standard HTTP methods (GET, POST, PUT, DELETE). Resources are identified by URLs. Stateless communication means each request contains all needed information. RESTful APIs should be uniform, cacheable, layered, and use proper status codes (200, 201, 400, 404, 500).",
+    "tags": [
+      "networking",
+      "interview"
+    ]
+  },
+  {
+    "topic": "git",
+    "question": "What is the difference between git merge and git rebase?",
+    "answer": "Merge creates a merge commit preserving branch history (non-destructive). Rebase replays commits on top of another branch creating a linear history (rewrites commits). Use merge for shared branches, rebase for local feature branches before merging. Never rebase public/shared branches.",
+    "tags": [
+      "git",
+      "interview"
+    ]
+  },
+  {
+    "topic": "git",
+    "question": "Explain git branching strategies like GitFlow and trunk-based development.",
+    "answer": "GitFlow uses feature, develop, release, hotfix, and main branches for structured releases. Trunk-based development uses short-lived feature branches merged frequently to main. GitFlow suits scheduled releases; trunk-based suits continuous deployment. Choose based on team size and release frequency.",
+    "tags": [
+      "git",
+      "interview"
+    ]
+  },
+  {
+    "topic": "hr",
+    "question": "Tell me about a time you failed and what you learned from it.",
+    "answer": "Use the STAR method: describe the Situation, Task, Action taken, and Result. Be honest about the failure, focus on what you learned, and explain how you applied that learning. Show growth mindset, accountability, and resilience. Interviewers want to see self-awareness and improvement.",
+    "tags": [
+      "hr",
+      "interview"
+    ]
+  },
+  {
+    "topic": "hr",
+    "question": "How do you handle conflict with a team member?",
+    "answer": "Acknowledge the conflict early. Listen actively to understand their perspective. Focus on the issue, not the person. Find common ground and propose solutions. If needed, involve a mediator. Document agreements. Show emotional intelligence, professionalism, and commitment to team goals.",
+    "tags": [
+      "hr",
+      "interview"
+    ]
+  },
+  {
+    "topic": "hr",
+    "question": "Why should we hire you over other candidates?",
+    "answer": "Highlight your unique combination of skills, experience, and cultural fit. Reference specific requirements from the job description. Give concrete examples of past achievements. Show enthusiasm for the role and company. Be confident without being arrogant. Focus on the value you bring.",
+    "tags": [
+      "hr",
+      "interview"
+    ]
+  },
+  {
+    "topic": "web",
+    "question": "Explain the difference between REST and GraphQL APIs.",
+    "answer": "REST uses multiple endpoints with fixed data structures. GraphQL uses a single endpoint where clients specify exactly what data they need. REST can lead to over-fetching or under-fetching. GraphQL solves this but adds complexity. REST is simpler for CRUD operations; GraphQL suits complex, nested data.",
+    "tags": [
+      "web",
+      "interview"
+    ]
+  },
+  {
+    "topic": "web",
+    "question": "What is the difference between cookies, localStorage, and sessionStorage?",
+    "answer": "Cookies are sent with every HTTP request, have size limits (4KB), can have expiration dates, and work cross-origin with proper headers. localStorage persists indefinitely (5-10MB). sessionStorage clears when the tab closes. Cookies suit authentication; localStorage suits preferences; sessionStorage suits temporary state.",
+    "tags": [
+      "web",
+      "interview"
+    ]
+  },
+  {
+    "topic": "web",
+    "question": "Explain the concept of responsive web design.",
+    "answer": "Responsive design makes websites adapt to different screen sizes and devices. Key techniques include fluid grids, flexible images, CSS media queries, and mobile-first approach. Modern tools include CSS Grid, Flexbox, and viewport units. Test across devices and screen sizes for consistent user experience.",
+    "tags": [
+      "web",
+      "interview"
+    ]
+  },
+  {
+    "topic": "web",
+    "question": "What is Cross-Site Scripting (XSS) and how do you prevent it?",
+    "answer": "XSS injects malicious scripts into web pages viewed by other users. Types include stored, reflected, and DOM-based XSS. Prevention: sanitize/escape user input, use Content Security Policy (CSP), httpOnly cookies, input validation, output encoding, and modern frameworks that auto-escape.",
+    "tags": [
+      "web",
+      "interview"
+    ]
+  },
+  {
+    "topic": "web",
+    "question": "Explain the event loop in JavaScript.",
+    "answer": "JavaScript is single-threaded. The event loop manages asynchronous operations: call stack executes synchronous code, Web APIs handle async operations (setTimeout, fetch), callback queue holds completed callbacks, and the event loop moves callbacks to the call stack when it is empty. Microtasks (Promises) have priority over macrotasks.",
+    "tags": [
+      "web",
+      "interview"
+    ]
+  },
+  {
+    "topic": "ai",
+    "question": "Explain cross-validation and why it is important.",
+    "answer": "Cross-validation splits data into k folds, trains on k-1 folds and validates on 1, rotating through all folds. It provides a more reliable estimate of model performance than a single train-test split. Common variants: k-fold, stratified k-fold, leave-one-out. It helps detect overfitting and select hyperparameters.",
+    "tags": [
+      "ai",
+      "interview"
+    ]
+  },
+  {
+    "topic": "ai",
+    "question": "What is transfer learning and when should you use it?",
+    "answer": "Transfer learning uses a model pre-trained on a large dataset and adapts it to a new, often smaller dataset. It leverages learned features/representations. Common in NLP (BERT, GPT) and computer vision (ResNet, VGG). Use when you have limited training data, the source and target domains are related, and training from scratch is too expensive.",
+    "tags": [
+      "ai",
+      "interview"
+    ]
+  },
+  {
+    "topic": "testing",
+    "question": "What is the difference between unit testing, integration testing, and end-to-end testing?",
+    "answer": "Unit tests verify individual functions/methods in isolation. Integration tests verify interactions between modules/services. End-to-end tests verify the entire application flow from user perspective. The testing pyramid suggests many unit tests, fewer integration tests, and minimal E2E tests for optimal coverage and speed.",
+    "tags": [
+      "testing",
+      "interview"
+    ]
+  },
+  {
+    "topic": "testing",
+    "question": "What is Test-Driven Development (TDD)?",
+    "answer": "TDD follows Red-Green-Refactor: write a failing test first (red), write minimal code to pass (green), then refactor for quality. Benefits include better design, higher test coverage, documentation through tests, and confidence in refactoring. It encourages writing testable, modular code.",
+    "tags": [
+      "testing",
+      "interview"
+    ]
+  },
+  {
+    "topic": "security",
+    "question": "Explain common web security vulnerabilities (OWASP Top 10).",
+    "answer": "Key vulnerabilities include: Injection (SQL, NoSQL), Broken Authentication, Sensitive Data Exposure, XML External Entities, Broken Access Control, Security Misconfiguration, Cross-Site Scripting (XSS), Insecure Deserialization, Using Components with Known Vulnerabilities, and Insufficient Logging/Monitoring.",
+    "tags": [
+      "security",
+      "interview"
+    ]
+  },
+  {
+    "topic": "security",
+    "question": "What is the difference between authentication and authorization?",
+    "answer": "Authentication verifies identity (who you are) using credentials like passwords, tokens, or biometrics. Authorization determines permissions (what you can do) based on roles, policies, or attributes. Authentication always comes first. Examples: login is authentication; admin vs user access is authorization.",
+    "tags": [
+      "security",
+      "interview"
+    ]
+  },
+  {
+    "topic": "agile",
+    "question": "Explain Agile methodology and its key principles.",
+    "answer": "Agile is an iterative development approach emphasizing collaboration, flexibility, and customer feedback. Key principles: individuals over processes, working software over documentation, customer collaboration over contracts, responding to change over following a plan. Frameworks include Scrum, Kanban, and XP.",
+    "tags": [
+      "agile",
+      "interview"
+    ]
+  },
+  {
+    "topic": "agile",
+    "question": "What is the difference between Scrum and Kanban?",
+    "answer": "Scrum uses fixed-length sprints (1-4 weeks) with defined roles (Scrum Master, Product Owner, Team). Kanban uses continuous flow with WIP (Work In Progress) limits. Scrum has ceremonies (standup, planning, review, retro). Kanban focuses on visualizing workflow and limiting bottlenecks. Both are Agile frameworks.",
+    "tags": [
+      "agile",
       "interview"
     ]
   }
