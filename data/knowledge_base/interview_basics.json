@@ -1,0 +1,1325 @@
+[
+  {
+    "topic": "ai",
+    "question": "What is the difference between AI, Machine Learning, and Deep Learning?",
+    "answer": "AI is the broad field of building systems that mimic intelligent behavior. Machine Learning (ML) is a subset of AI where models learn patterns from data rather than being explicitly programmed. Deep Learning is a subset of ML that uses multi-layer neural networks to learn hierarchical representations, especially effective for unstructured data like images, text, and audio.",
+    "tags": [
+      "ai",
+      "interview"
+    ]
+  },
+  {
+    "topic": "ai",
+    "question": "What is the difference between a Large Language Model and a traditional NLP model?",
+    "answer": "Traditional NLP models (e.g., TF-IDF + logistic regression, rule-based systems) are task-specific and trained on smaller labeled datasets. LLMs are transformer-based models pretrained on massive text corpora using self-supervised objectives, giving them broad general-purpose language understanding that can be adapted to many tasks via prompting or fine-tuning.",
+    "tags": [
+      "ai",
+      "interview"
+    ]
+  },
+  {
+    "topic": "ai",
+    "question": "Explain the Transformer architecture at a high level.",
+    "answer": "A Transformer processes sequences using self-attention instead of recurrence. Each token attends to every other token via query, key, and value vectors, allowing the model to weigh relevant context regardless of distance. Encoder-decoder or decoder-only stacks combine attention layers with feed-forward layers, residual connections, and layer normalization.",
+    "tags": [
+      "ai",
+      "interview"
+    ]
+  },
+  {
+    "topic": "ai",
+    "question": "What is self-attention and why is it important?",
+    "answer": "Self-attention computes a weighted representation of each token based on its relevance to all other tokens in the sequence. It lets models capture long-range dependencies in parallel (unlike RNNs), which improves both training efficiency and the ability to model context.",
+    "tags": [
+      "ai",
+      "interview"
+    ]
+  },
+  {
+    "topic": "ai",
+    "question": "What is the difference between fine-tuning and prompt engineering?",
+    "answer": "Fine-tuning updates a model's weights using additional task-specific data, changing its underlying behavior permanently. Prompt engineering crafts input instructions/examples to steer a frozen model's output without changing its weights. Fine-tuning is more powerful but costlier; prompting is fast and cheap to iterate on.",
+    "tags": [
+      "ai",
+      "interview"
+    ]
+  },
+  {
+    "topic": "ai",
+    "question": "What is RAG (Retrieval-Augmented Generation)?",
+    "answer": "RAG combines a retrieval system (e.g., vector search over a document store) with a generative model. Relevant documents are retrieved based on the query and injected into the prompt, letting the model produce grounded, up-to-date answers without retraining.",
+    "tags": [
+      "ai",
+      "interview"
+    ]
+  },
+  {
+    "topic": "ai",
+    "question": "How do embeddings work and why are they useful?",
+    "answer": "Embeddings map discrete items (words, sentences, images) into continuous vector space such that semantically similar items are close together. They are used for search, clustering, recommendation, and as inputs to downstream models.",
+    "tags": [
+      "ai",
+      "interview"
+    ]
+  },
+  {
+    "topic": "ai",
+    "question": "What is the difference between cosine similarity and Euclidean distance for embeddings?",
+    "answer": "Cosine similarity measures the angle between two vectors, capturing directional similarity regardless of magnitude \u2014 useful when vector length varies. Euclidean distance measures straight-line distance and is sensitive to magnitude. Text embeddings typically use cosine similarity since direction encodes semantic meaning better than scale.",
+    "tags": [
+      "ai",
+      "interview"
+    ]
+  },
+  {
+    "topic": "ai",
+    "question": "What is model quantization?",
+    "answer": "Quantization reduces the numerical precision of model weights/activations (e.g., FP32 to INT8 or 4-bit) to shrink model size and speed up inference, usually with a small accuracy trade-off. It's key for deploying large models on limited hardware.",
+    "tags": [
+      "ai",
+      "interview"
+    ]
+  },
+  {
+    "topic": "ai",
+    "question": "What is the difference between LoRA and full fine-tuning?",
+    "answer": "Full fine-tuning updates all model parameters, which is expensive and memory-intensive. LoRA (Low-Rank Adaptation) freezes the base model and injects small trainable low-rank matrices into specific layers, drastically reducing trainable parameters and memory while achieving comparable task performance.",
+    "tags": [
+      "ai",
+      "interview"
+    ]
+  },
+  {
+    "topic": "ai",
+    "question": "What is overfitting and how do you prevent it?",
+    "answer": "Overfitting occurs when a model learns noise/specifics of training data rather than generalizable patterns, hurting performance on unseen data. Prevention techniques include regularization (L1/L2), dropout, early stopping, data augmentation, cross-validation, and gathering more diverse training data.",
+    "tags": [
+      "ai",
+      "interview"
+    ]
+  },
+  {
+    "topic": "ai",
+    "question": "What is the bias-variance tradeoff?",
+    "answer": "Bias is error from overly simplistic assumptions (underfitting); variance is error from sensitivity to training data fluctuations (overfitting). Increasing model complexity typically lowers bias but raises variance. The goal is to find the sweet spot that minimizes total generalization error.",
+    "tags": [
+      "ai",
+      "interview"
+    ]
+  },
+  {
+    "topic": "ai",
+    "question": "What are common evaluation metrics for classification models?",
+    "answer": "Accuracy, precision, recall, F1-score, ROC-AUC, and confusion matrix. Precision/recall trade-offs matter especially in imbalanced datasets, where accuracy alone can be misleading.",
+    "tags": [
+      "ai",
+      "interview"
+    ]
+  },
+  {
+    "topic": "ai",
+    "question": "How would you evaluate an LLM-based application in production?",
+    "answer": "Combine automated metrics (BLEU/ROUGE for text overlap, embedding-based similarity), task-specific metrics (accuracy on a labeled eval set), human evaluation/rating, and LLM-as-judge techniques. Also track latency, cost per request, hallucination rate, and user feedback signals in production.",
+    "tags": [
+      "ai",
+      "interview"
+    ]
+  },
+  {
+    "topic": "ai",
+    "question": "What is catastrophic forgetting?",
+    "answer": "It's when a model loses previously learned knowledge/capabilities after being fine-tuned on new data. It's mitigated with techniques like rehearsal (mixing old data), regularization-based methods (e.g., elastic weight consolidation), or parameter-efficient fine-tuning like LoRA that limits changes to the base model.",
+    "tags": [
+      "ai",
+      "interview"
+    ]
+  },
+  {
+    "topic": "ai",
+    "question": "What is the difference between a vector database and a traditional database?",
+    "answer": "A vector database is optimized for storing and querying high-dimensional embeddings using approximate nearest neighbor (ANN) search (e.g., HNSW, IVF indexes), enabling fast semantic similarity search. Traditional databases are optimized for exact-match queries and structured relational data.",
+    "tags": [
+      "ai",
+      "interview"
+    ]
+  },
+  {
+    "topic": "ai",
+    "question": "What is hallucination in LLMs and how can it be reduced?",
+    "answer": "Hallucination is when a model generates plausible-sounding but factually incorrect or unsupported content. It can be reduced with RAG (grounding responses in retrieved facts), lower sampling temperature, fine-tuning on verified data, output verification/citation requirements, and guardrail/fact-checking layers.",
+    "tags": [
+      "ai",
+      "interview"
+    ]
+  },
+  {
+    "topic": "ai",
+    "question": "What is the difference between supervised, unsupervised, and reinforcement learning?",
+    "answer": "Supervised learning trains on labeled input-output pairs. Unsupervised learning finds structure/patterns in unlabeled data (clustering, dimensionality reduction). Reinforcement learning trains an agent to take actions in an environment to maximize cumulative reward through trial and error.",
+    "tags": [
+      "ai",
+      "interview"
+    ]
+  },
+  {
+    "topic": "ai",
+    "question": "What is RLHF (Reinforcement Learning from Human Feedback)?",
+    "answer": "RLHF fine-tunes a language model using human preference data: humans rank model outputs, a reward model is trained on those rankings, and the language model is then optimized (e.g., via PPO) to maximize the reward model's score, aligning outputs with human preferences.",
+    "tags": [
+      "ai",
+      "interview"
+    ]
+  },
+  {
+    "topic": "ai",
+    "question": "How do you handle a model that performs well offline but poorly in production?",
+    "answer": "Check for data/feature drift, training-serving skew, differences in data distribution, latency constraints causing truncated inputs, and pipeline bugs. Set up continuous monitoring, shadow testing, and A/B tests to catch degradation early.",
+    "tags": [
+      "ai",
+      "interview"
+    ]
+  },
+  {
+    "topic": "ai",
+    "question": "What is prompt injection and how do you defend against it?",
+    "answer": "Prompt injection is when malicious input tries to override a model's instructions (e.g., embedded in retrieved documents or user input) to produce unintended behavior. Defenses include input/output sanitization, strict system-prompt boundaries, permission scoping for tool use, and treating retrieved content as untrusted data rather than instructions.",
+    "tags": [
+      "ai",
+      "interview"
+    ]
+  },
+  {
+    "topic": "ai",
+    "question": "What's the difference between batch inference and real-time/online inference?",
+    "answer": "Batch inference processes large volumes of data on a schedule (higher throughput, higher latency tolerance, cost-efficient). Real-time inference serves individual requests with low-latency requirements, typically needing optimized serving infrastructure like model servers with caching and autoscaling.",
+    "tags": [
+      "ai",
+      "interview"
+    ]
+  },
+  {
+    "topic": "ai",
+    "question": "How would you design a system to reduce LLM API costs at scale?",
+    "answer": "Use caching for repeated queries, choose the smallest model that meets quality bar, batch requests where possible, use prompt compression, apply retrieval to avoid stuffing full context, and route simple queries to cheaper/smaller models via a routing/orchestration layer.",
+    "tags": [
+      "ai",
+      "interview"
+    ]
+  },
+  {
+    "topic": "ai",
+    "question": "What is chunking in RAG systems and why does chunk size matter?",
+    "answer": "Chunking splits documents into smaller pieces before embedding/indexing so retrieval returns focused, relevant context. Chunk size affects retrieval precision (too large dilutes relevance, too small loses context) and must balance semantic coherence with the model's context window limits.",
+    "tags": [
+      "ai",
+      "interview"
+    ]
+  },
+  {
+    "topic": "data_science",
+    "question": "Explain temperature and top-p sampling in LLM generation.",
+    "answer": "Temperature scales the probability distribution before sampling \u2014 lower values make outputs more deterministic/focused, higher values increase randomness/creativity. Top-p (nucleus) sampling restricts sampling to the smallest set of tokens whose cumulative probability exceeds p, filtering out unlikely tokens while retaining diversity.",
+    "tags": [
+      "data_science",
+      "interview"
+    ]
+  },
+  {
+    "topic": "data_science",
+    "question": "What is the difference between Type I and Type II errors?",
+    "answer": "A Type I error (false positive) rejects a true null hypothesis. A Type II error (false negative) fails to reject a false null hypothesis. There is typically a tradeoff between the two, controlled by the significance level and statistical power.",
+    "tags": [
+      "data_science",
+      "interview"
+    ]
+  },
+  {
+    "topic": "data_science",
+    "question": "Explain p-value in simple terms.",
+    "answer": "A p-value is the probability of observing results as extreme as (or more extreme than) the observed data, assuming the null hypothesis is true. A small p-value suggests the observed effect is unlikely under the null hypothesis, providing evidence against it.",
+    "tags": [
+      "data_science",
+      "interview"
+    ]
+  },
+  {
+    "topic": "data_science",
+    "question": "What is the Central Limit Theorem and why does it matter?",
+    "answer": "It states that the sampling distribution of the mean of a sufficiently large number of independent, identically distributed samples approaches a normal distribution, regardless of the population's original distribution. This underpins much of inferential statistics, like confidence intervals and hypothesis tests.",
+    "tags": [
+      "data_science",
+      "interview"
+    ]
+  },
+  {
+    "topic": "data_science",
+    "question": "What is the difference between correlation and causation?",
+    "answer": "Correlation means two variables move together statistically; causation means one variable directly influences another. Correlation doesn't imply causation because confounding variables, reverse causality, or coincidence can produce correlated data without a causal link.",
+    "tags": [
+      "data_science",
+      "interview"
+    ]
+  },
+  {
+    "topic": "data_science",
+    "question": "How do you handle missing data?",
+    "answer": "Options include deletion (listwise/pairwise, if missingness is minimal and random), imputation (mean/median/mode, regression, KNN, or model-based methods like MICE), or using models that natively handle missing values. The right approach depends on the mechanism of missingness (MCAR, MAR, MNAR).",
+    "tags": [
+      "data_science",
+      "interview"
+    ]
+  },
+  {
+    "topic": "data_science",
+    "question": "What is regularization and why is it used?",
+    "answer": "Regularization adds a penalty term to a model's loss function to discourage overly complex models, reducing overfitting. L1 (Lasso) encourages sparsity by shrinking some coefficients to zero; L2 (Ridge) shrinks coefficients smoothly without eliminating them.",
+    "tags": [
+      "data_science",
+      "interview"
+    ]
+  },
+  {
+    "topic": "data_science",
+    "question": "Explain the difference between bagging and boosting.",
+    "answer": "Bagging (e.g., Random Forest) trains multiple models independently on bootstrapped samples and averages/votes their predictions to reduce variance. Boosting (e.g., XGBoost, AdaBoost) trains models sequentially, each correcting the errors of the previous one, reducing bias.",
+    "tags": [
+      "data_science",
+      "interview"
+    ]
+  },
+  {
+    "topic": "data_science",
+    "question": "What is cross-validation and why use it?",
+    "answer": "Cross-validation splits data into multiple train/test folds to estimate a model's generalization performance more robustly than a single train/test split, reducing the risk of overly optimistic or pessimistic evaluation due to a lucky/unlucky split.",
+    "tags": [
+      "data_science",
+      "interview"
+    ]
+  },
+  {
+    "topic": "data_science",
+    "question": "How do you deal with class imbalance in a dataset?",
+    "answer": "Techniques include resampling (oversampling minority class e.g. SMOTE, undersampling majority class), class-weighted loss functions, choosing appropriate metrics (F1, PR-AUC instead of accuracy), and ensemble methods designed for imbalance.",
+    "tags": [
+      "data_science",
+      "interview"
+    ]
+  },
+  {
+    "topic": "data_science",
+    "question": "What is A/B testing and what are common pitfalls?",
+    "answer": "A/B testing compares two variants by randomly assigning users to each and measuring outcome differences. Pitfalls include insufficient sample size/statistical power, peeking at results early (inflating false positive rate), novelty effects, and not accounting for multiple comparisons.",
+    "tags": [
+      "data_science",
+      "interview"
+    ]
+  },
+  {
+    "topic": "data_science",
+    "question": "What is the difference between parametric and non-parametric models?",
+    "answer": "Parametric models assume a fixed functional form with a finite set of parameters (e.g., linear regression), making them simpler but potentially less flexible. Non-parametric models (e.g., KNN, decision trees) make fewer assumptions and can grow in complexity with data, but may need more data and can overfit.",
+    "tags": [
+      "data_science",
+      "interview"
+    ]
+  },
+  {
+    "topic": "data_science",
+    "question": "Explain PCA (Principal Component Analysis).",
+    "answer": "PCA is a dimensionality reduction technique that finds orthogonal directions (principal components) capturing maximum variance in the data. It projects data onto a smaller number of components while preserving as much information as possible, useful for visualization and reducing multicollinearity.",
+    "tags": [
+      "data_science",
+      "interview"
+    ]
+  },
+  {
+    "topic": "data_science",
+    "question": "What is multicollinearity and why is it a problem?",
+    "answer": "Multicollinearity occurs when predictor variables are highly correlated with each other, making it hard to isolate each variable's individual effect on the target, inflating coefficient variance, and destabilizing model interpretation (though it may not hurt pure predictive accuracy).",
+    "tags": [
+      "data_science",
+      "interview"
+    ]
+  },
+  {
+    "topic": "data_science",
+    "question": "What is the difference between R-squared and adjusted R-squared?",
+    "answer": "R-squared measures the proportion of variance explained by the model, but always increases as more predictors are added, even irrelevant ones. Adjusted R-squared penalizes for the number of predictors, only increasing if a new variable improves the model more than expected by chance.",
+    "tags": [
+      "data_science",
+      "interview"
+    ]
+  },
+  {
+    "topic": "data_science",
+    "question": "How would you detect outliers in a dataset?",
+    "answer": "Methods include visual inspection (box plots, scatter plots), statistical rules (Z-score, IQR method), and model-based approaches (isolation forest, DBSCAN clustering). The right threshold depends on domain context and whether outliers are errors or meaningful signals.",
+    "tags": [
+      "data_science",
+      "interview"
+    ]
+  },
+  {
+    "topic": "data_science",
+    "question": "What is feature engineering and why is it important?",
+    "answer": "Feature engineering is the process of creating, transforming, or selecting variables to improve model performance \u2014 e.g., encoding categoricals, creating interaction terms, scaling, extracting date features. Good features often matter more than model choice for real-world performance.",
+    "tags": [
+      "data_science",
+      "interview"
+    ]
+  },
+  {
+    "topic": "data_science",
+    "question": "Explain the difference between a t-test and a chi-square test.",
+    "answer": "A t-test compares means of a continuous variable between two groups. A chi-square test assesses whether there's a significant association between two categorical variables (or compares observed vs. expected frequencies).",
+    "tags": [
+      "data_science",
+      "interview"
+    ]
+  },
+  {
+    "topic": "data_science",
+    "question": "What is survivorship bias?",
+    "answer": "It's a logical error of focusing only on entities that 'survived' a selection process while overlooking those that didn't, leading to skewed conclusions \u2014 e.g., analyzing only successful companies' strategies while ignoring failed ones with similar strategies.",
+    "tags": [
+      "data_science",
+      "interview"
+    ]
+  },
+  {
+    "topic": "data_science",
+    "question": "How do you choose between different machine learning models for a problem?",
+    "answer": "Consider the problem type (classification/regression/clustering), interpretability requirements, dataset size, training/inference speed constraints, and baseline performance comparisons across models via cross-validation, balancing accuracy against complexity and deployment constraints.",
+    "tags": [
+      "data_science",
+      "interview"
+    ]
+  },
+  {
+    "topic": "data_science",
+    "question": "What is a confusion matrix and what can you derive from it?",
+    "answer": "A confusion matrix summarizes prediction outcomes as true positives, false positives, true negatives, and false negatives. From it you derive accuracy, precision, recall, specificity, and F1-score, giving deeper insight than accuracy alone, especially for imbalanced classes.",
+    "tags": [
+      "data_science",
+      "interview"
+    ]
+  },
+  {
+    "topic": "data_science",
+    "question": "What's the difference between MAE, MSE, and RMSE?",
+    "answer": "MAE (Mean Absolute Error) averages absolute differences, treating all errors linearly. MSE (Mean Squared Error) squares errors, penalizing large errors more heavily. RMSE is the square root of MSE, bringing the metric back to the original unit scale while still penalizing large errors.",
+    "tags": [
+      "data_science",
+      "interview"
+    ]
+  },
+  {
+    "topic": "hr",
+    "question": "How would you explain a complex model's prediction to a non-technical stakeholder?",
+    "answer": "Use interpretability tools like SHAP or LIME to identify the top contributing features for a prediction, then translate them into plain-language business terms with visualizations (e.g., 'the loan was denied mainly due to low credit history length and high existing debt'), avoiding technical jargon.",
+    "tags": [
+      "hr",
+      "interview"
+    ]
+  },
+  {
+    "topic": "hr",
+    "question": "Tell me about yourself.",
+    "answer": "Give a brief, structured summary: your current role/background, key skills or achievements relevant to the job, and why you're interested in this opportunity. Keep it under 2 minutes and tie it back to the role.",
+    "tags": [
+      "hr",
+      "interview"
+    ]
+  },
+  {
+    "topic": "hr",
+    "question": "Why do you want to work for this company?",
+    "answer": "Show you've researched the company \u2014 mention its mission, products, culture, or recent achievements \u2014 and connect it to your career goals and values, demonstrating genuine, specific interest rather than a generic answer.",
+    "tags": [
+      "hr",
+      "interview"
+    ]
+  },
+  {
+    "topic": "hr",
+    "question": "What are your strengths?",
+    "answer": "Pick 2-3 strengths relevant to the role, and back each with a brief concrete example demonstrating impact, rather than just listing adjectives.",
+    "tags": [
+      "hr",
+      "interview"
+    ]
+  },
+  {
+    "topic": "hr",
+    "question": "What are your weaknesses?",
+    "answer": "Choose a real but non-critical weakness, and focus on the concrete steps you're taking to improve it, showing self-awareness and growth mindset rather than a disguised strength.",
+    "tags": [
+      "hr",
+      "interview"
+    ]
+  },
+  {
+    "topic": "hr",
+    "question": "Where do you see yourself in 5 years?",
+    "answer": "Describe realistic growth aligned with the role and company trajectory \u2014 e.g., deepening expertise, taking on more responsibility \u2014 showing ambition balanced with commitment to the path this role offers.",
+    "tags": [
+      "hr",
+      "interview"
+    ]
+  },
+  {
+    "topic": "hr",
+    "question": "Why are you leaving your current job?",
+    "answer": "Stay positive and forward-looking: focus on seeking growth, new challenges, or better alignment with your goals rather than criticizing your current employer or colleagues.",
+    "tags": [
+      "hr",
+      "interview"
+    ]
+  },
+  {
+    "topic": "hr",
+    "question": "Describe a challenging situation at work and how you handled it.",
+    "answer": "Use the STAR method (Situation, Task, Action, Result) to structure a specific example, emphasizing your problem-solving process and the positive outcome or lesson learned.",
+    "tags": [
+      "hr",
+      "interview"
+    ]
+  },
+  {
+    "topic": "hr",
+    "question": "How do you handle conflict with a coworker?",
+    "answer": "Emphasize direct, respectful communication, seeking to understand the other perspective, focusing on the issue rather than the person, and escalating appropriately only if needed. A brief real example strengthens the answer.",
+    "tags": [
+      "hr",
+      "interview"
+    ]
+  },
+  {
+    "topic": "hr",
+    "question": "What motivates you?",
+    "answer": "Share genuine intrinsic and extrinsic motivators relevant to the workplace \u2014 e.g., solving meaningful problems, learning, collaboration, impact \u2014 supported by a short example of when that motivation drove strong results.",
+    "tags": [
+      "hr",
+      "interview"
+    ]
+  },
+  {
+    "topic": "hr",
+    "question": "Why should we hire you?",
+    "answer": "Summarize the intersection of your skills/experience and the role's needs, highlighting unique value you bring and enthusiasm for contributing to the team's goals.",
+    "tags": [
+      "hr",
+      "interview"
+    ]
+  },
+  {
+    "topic": "hr",
+    "question": "Tell me about a time you failed.",
+    "answer": "Choose a genuine failure, briefly explain what happened, take ownership without excessive blame-shifting, and focus most of the answer on what you learned and how you applied it afterward.",
+    "tags": [
+      "hr",
+      "interview"
+    ]
+  },
+  {
+    "topic": "hr",
+    "question": "How do you prioritize tasks when you have multiple deadlines?",
+    "answer": "Describe a clear method \u2014 e.g., assessing urgency/impact, using a prioritization framework, communicating proactively with stakeholders about tradeoffs \u2014 ideally illustrated with a real example.",
+    "tags": [
+      "hr",
+      "interview"
+    ]
+  },
+  {
+    "topic": "hr",
+    "question": "What is your salary expectation?",
+    "answer": "Research market rates for the role/location beforehand, and give a well-reasoned range while expressing flexibility and openness to discussing the full compensation package.",
+    "tags": [
+      "hr",
+      "interview"
+    ]
+  },
+  {
+    "topic": "hr",
+    "question": "Describe your ideal work environment.",
+    "answer": "Align your answer with what you know about the company's actual culture, focusing on factors like collaboration style, autonomy, and pace that genuinely help you do your best work.",
+    "tags": [
+      "hr",
+      "interview"
+    ]
+  },
+  {
+    "topic": "hr",
+    "question": "How do you handle stress and pressure?",
+    "answer": "Share specific coping strategies (prioritization, breaking tasks down, communication, short breaks) and a concrete example of successfully performing well under a high-pressure situation.",
+    "tags": [
+      "hr",
+      "interview"
+    ]
+  },
+  {
+    "topic": "hr",
+    "question": "Do you prefer working independently or in a team?",
+    "answer": "Show adaptability \u2014 explain that you can thrive in both settings depending on the task, with a brief example of success in each, rather than picking one exclusively.",
+    "tags": [
+      "hr",
+      "interview"
+    ]
+  },
+  {
+    "topic": "hr",
+    "question": "What do you know about our company?",
+    "answer": "Demonstrate research: mention the company's products/services, mission, recent news, competitive position, or values, and connect it to why you're excited about the role.",
+    "tags": [
+      "hr",
+      "interview"
+    ]
+  },
+  {
+    "topic": "hr",
+    "question": "How do you handle receiving critical feedback?",
+    "answer": "Emphasize open, non-defensive mindset: listening carefully, asking clarifying questions, and using feedback constructively to improve, backed by a specific example.",
+    "tags": [
+      "hr",
+      "interview"
+    ]
+  },
+  {
+    "topic": "hr",
+    "question": "Tell me about a time you showed leadership.",
+    "answer": "Use STAR to describe a situation where you took initiative or guided others toward a goal, even without a formal leadership title, emphasizing the outcome and impact on the team.",
+    "tags": [
+      "hr",
+      "interview"
+    ]
+  },
+  {
+    "topic": "system_design",
+    "question": "Do you have any questions for us?",
+    "answer": "Always have thoughtful questions prepared \u2014 about team structure, success metrics for the role, growth opportunities, or company culture \u2014 showing genuine engagement and curiosity.",
+    "tags": [
+      "system_design",
+      "interview"
+    ]
+  },
+  {
+    "topic": "system_design",
+    "question": "What is the difference between horizontal and vertical scaling?",
+    "answer": "Vertical scaling adds more resources (CPU/RAM) to a single machine, which is simple but has hardware limits and a single point of failure. Horizontal scaling adds more machines to distribute load, offering better fault tolerance and near-unlimited scalability at the cost of added architectural complexity.",
+    "tags": [
+      "system_design",
+      "interview"
+    ]
+  },
+  {
+    "topic": "system_design",
+    "question": "What is a load balancer and why is it used?",
+    "answer": "A load balancer distributes incoming traffic across multiple servers to prevent any single server from being overwhelmed, improving availability, fault tolerance, and response times. Common algorithms include round robin, least connections, and IP hash.",
+    "tags": [
+      "system_design",
+      "interview"
+    ]
+  },
+  {
+    "topic": "system_design",
+    "question": "Explain the CAP theorem.",
+    "answer": "CAP theorem states a distributed system can only guarantee two of three properties at once: Consistency (all nodes see the same data), Availability (every request gets a response), and Partition Tolerance (system continues despite network failures). Since partitions are unavoidable in distributed systems, designers must choose between consistency and availability during a partition.",
+    "tags": [
+      "system_design",
+      "interview"
+    ]
+  },
+  {
+    "topic": "system_design",
+    "question": "What is the difference between SQL and NoSQL databases?",
+    "answer": "SQL databases are relational, with structured schemas and strong ACID guarantees, well-suited for complex queries and transactional consistency. NoSQL databases (document, key-value, column, graph) offer flexible schemas and horizontal scalability, often trading strict consistency for availability and performance at scale.",
+    "tags": [
+      "system_design",
+      "interview"
+    ]
+  },
+  {
+    "topic": "system_design",
+    "question": "What is database sharding?",
+    "answer": "Sharding splits a large database into smaller, independent pieces (shards) distributed across multiple servers, typically partitioned by a shard key. It improves scalability and performance but adds complexity for cross-shard queries and rebalancing.",
+    "tags": [
+      "system_design",
+      "interview"
+    ]
+  },
+  {
+    "topic": "system_design",
+    "question": "What is caching and what are common caching strategies?",
+    "answer": "Caching stores frequently accessed data in fast storage (e.g., in-memory) to reduce latency and database load. Strategies include cache-aside (app manages cache), write-through (write to cache and DB simultaneously), write-back (write to cache first, DB later), and TTL-based expiration.",
+    "tags": [
+      "system_design",
+      "interview"
+    ]
+  },
+  {
+    "topic": "system_design",
+    "question": "What is the difference between a message queue and a pub/sub system?",
+    "answer": "A message queue typically delivers each message to a single consumer (point-to-point), useful for task distribution. A pub/sub system broadcasts messages to all subscribed consumers of a topic, useful for event-driven, fan-out communication patterns.",
+    "tags": [
+      "system_design",
+      "interview"
+    ]
+  },
+  {
+    "topic": "system_design",
+    "question": "How would you design a URL shortening service?",
+    "answer": "Key components: a hashing/encoding scheme (e.g., base62 of an auto-incrementing ID) to generate short codes, a key-value store mapping short codes to long URLs, caching for popular lookups, redirect handling via HTTP 301/302, and horizontal scaling with sharding/replication as traffic grows.",
+    "tags": [
+      "system_design",
+      "interview"
+    ]
+  },
+  {
+    "topic": "system_design",
+    "question": "What is eventual consistency?",
+    "answer": "It's a consistency model where, given no new updates, all replicas of data will eventually converge to the same value, though they may be temporarily inconsistent right after a write. It favors availability and partition tolerance, common in distributed NoSQL systems.",
+    "tags": [
+      "system_design",
+      "interview"
+    ]
+  },
+  {
+    "topic": "system_design",
+    "question": "What is a CDN and how does it improve performance?",
+    "answer": "A Content Delivery Network caches static (and sometimes dynamic) content across geographically distributed edge servers, reducing latency by serving users from a nearby location and offloading traffic from origin servers.",
+    "tags": [
+      "system_design",
+      "interview"
+    ]
+  },
+  {
+    "topic": "system_design",
+    "question": "How do you handle rate limiting in an API?",
+    "answer": "Common algorithms include token bucket, leaky bucket, fixed window counter, and sliding window log/counter. Rate limiting is typically implemented at the gateway/proxy layer, tracking usage per user/IP/API key and returning 429 responses when limits are exceeded.",
+    "tags": [
+      "system_design",
+      "interview"
+    ]
+  },
+  {
+    "topic": "system_design",
+    "question": "What is the difference between synchronous and asynchronous communication between services?",
+    "answer": "Synchronous communication (e.g., REST/RPC calls) blocks the caller until a response is received, simpler but can create tight coupling and cascading failures. Asynchronous communication (e.g., message queues, events) decouples services, improving resilience and scalability at the cost of added complexity in tracking state/consistency.",
+    "tags": [
+      "system_design",
+      "interview"
+    ]
+  },
+  {
+    "topic": "system_design",
+    "question": "What is database replication and what are its types?",
+    "answer": "Replication copies data across multiple database nodes for redundancy and read scalability. Master-slave (primary-replica) replication routes writes to one primary and reads to replicas; multi-master allows writes to multiple nodes but requires conflict resolution.",
+    "tags": [
+      "system_design",
+      "interview"
+    ]
+  },
+  {
+    "topic": "system_design",
+    "question": "How would you design a scalable notification system?",
+    "answer": "Use a message queue to decouple notification triggers from delivery, worker services to process and dispatch notifications via different channels (push, email, SMS), a template/preference service for personalization, retries with backoff for failed deliveries, and rate limiting to avoid spamming users.",
+    "tags": [
+      "system_design",
+      "interview"
+    ]
+  },
+  {
+    "topic": "system_design",
+    "question": "What is idempotency and why does it matter in distributed systems?",
+    "answer": "An idempotent operation produces the same result no matter how many times it's applied. It's crucial in distributed systems because network failures can cause retries \u2014 idempotency (e.g., via unique request IDs) prevents duplicate side effects like double-charging a payment.",
+    "tags": [
+      "system_design",
+      "interview"
+    ]
+  },
+  {
+    "topic": "system_design",
+    "question": "What is the difference between a monolith and microservices architecture?",
+    "answer": "A monolith is a single deployable unit containing all application logic \u2014 simpler to develop/deploy initially but harder to scale/maintain as it grows. Microservices split functionality into independently deployable services, improving scalability and team autonomy at the cost of operational complexity (networking, data consistency, deployment).",
+    "tags": [
+      "system_design",
+      "interview"
+    ]
+  },
+  {
+    "topic": "system_design",
+    "question": "How would you design a distributed logging/monitoring system?",
+    "answer": "Components include log shippers/agents on each service, a message queue or stream (e.g., Kafka) for buffering, a storage/indexing layer for search (e.g., Elasticsearch), a visualization layer (e.g., dashboards), and alerting rules based on thresholds or anomaly detection.",
+    "tags": [
+      "system_design",
+      "interview"
+    ]
+  },
+  {
+    "topic": "system_design",
+    "question": "What is a consistent hashing and why is it used?",
+    "answer": "Consistent hashing maps both data and servers onto a hash ring, so that when servers are added/removed, only a small fraction of keys need to be remapped (rather than nearly all, as with simple modulo hashing). It's widely used in distributed caches and databases for load distribution.",
+    "tags": [
+      "system_design",
+      "interview"
+    ]
+  },
+  {
+    "topic": "system_design",
+    "question": "How do you ensure high availability in system design?",
+    "answer": "Techniques include redundancy (multiple instances/replicas), failover mechanisms, load balancing, health checks with automatic recovery, geographic distribution across availability zones/regions, and graceful degradation strategies for partial failures.",
+    "tags": [
+      "system_design",
+      "interview"
+    ]
+  },
+  {
+    "topic": "dsa",
+    "question": "How would you design a real-time chat application?",
+    "answer": "Use WebSockets or long polling for real-time bidirectional communication, a message broker for delivery and offline queuing, a database for message persistence and history, presence tracking for online status, and horizontal scaling with sticky sessions or a pub/sub layer to route messages across server instances.",
+    "tags": [
+      "dsa",
+      "interview"
+    ]
+  },
+  {
+    "topic": "dsa",
+    "question": "What is the time complexity of common array operations?",
+    "answer": "Access: O(1). Search (unsorted): O(n). Insertion/Deletion at end: O(1) amortized. Insertion/Deletion at arbitrary position: O(n) due to shifting elements.",
+    "tags": [
+      "dsa",
+      "interview"
+    ]
+  },
+  {
+    "topic": "dsa",
+    "question": "What is the difference between an array and a linked list?",
+    "answer": "Arrays store elements contiguously in memory, offering O(1) random access but O(n) insertion/deletion in the middle. Linked lists store elements as nodes with pointers, offering O(1) insertion/deletion given a reference but O(n) access since traversal is required.",
+    "tags": [
+      "dsa",
+      "interview"
+    ]
+  },
+  {
+    "topic": "dsa",
+    "question": "What is Big-O notation?",
+    "answer": "Big-O describes the upper-bound growth rate of an algorithm's time or space requirements as input size increases, letting you compare algorithm efficiency independent of hardware, focusing on worst-case scaling behavior.",
+    "tags": [
+      "dsa",
+      "interview"
+    ]
+  },
+  {
+    "topic": "dsa",
+    "question": "Explain binary search and its time complexity.",
+    "answer": "Binary search repeatedly halves a sorted search space by comparing the target to the middle element, achieving O(log n) time complexity, compared to O(n) for linear search \u2014 but it requires the data to be sorted.",
+    "tags": [
+      "dsa",
+      "interview"
+    ]
+  },
+  {
+    "topic": "dsa",
+    "question": "What is a hash table and how does it achieve O(1) lookups?",
+    "answer": "A hash table maps keys to array indices using a hash function, allowing average O(1) insertion/lookup/deletion. Collisions (two keys hashing to the same index) are handled via chaining (linked lists at each bucket) or open addressing (probing for the next free slot).",
+    "tags": [
+      "dsa",
+      "interview"
+    ]
+  },
+  {
+    "topic": "dsa",
+    "question": "What is the difference between a stack and a queue?",
+    "answer": "A stack is LIFO (Last In, First Out) \u2014 used for things like function call stacks and undo operations. A queue is FIFO (First In, First Out) \u2014 used for things like task scheduling and BFS traversal.",
+    "tags": [
+      "dsa",
+      "interview"
+    ]
+  },
+  {
+    "topic": "dsa",
+    "question": "Explain how a binary search tree (BST) works.",
+    "answer": "A BST is a tree where each node's left subtree contains only smaller values and right subtree only larger values, enabling O(log n) average search/insert/delete. Worst case (unbalanced tree) degrades to O(n), which balanced variants like AVL or Red-Black trees address.",
+    "tags": [
+      "dsa",
+      "interview"
+    ]
+  },
+  {
+    "topic": "dsa",
+    "question": "What is the difference between BFS and DFS?",
+    "answer": "BFS (Breadth-First Search) explores level by level using a queue, useful for finding shortest paths in unweighted graphs. DFS (Depth-First Search) explores as deep as possible before backtracking, typically using a stack/recursion, useful for topological sorting and detecting cycles.",
+    "tags": [
+      "dsa",
+      "interview"
+    ]
+  },
+  {
+    "topic": "dsa",
+    "question": "What is dynamic programming?",
+    "answer": "Dynamic programming solves complex problems by breaking them into overlapping subproblems, solving each once, and storing results (memoization or tabulation) to avoid redundant computation \u2014 turning exponential-time brute-force solutions into polynomial time.",
+    "tags": [
+      "dsa",
+      "interview"
+    ]
+  },
+  {
+    "topic": "dsa",
+    "question": "What is the difference between memoization and tabulation?",
+    "answer": "Memoization is a top-down approach that caches results of recursive calls as they occur. Tabulation is a bottom-up approach that iteratively fills a table starting from base cases. Both avoid recomputation, but tabulation avoids recursion overhead/stack depth issues.",
+    "tags": [
+      "dsa",
+      "interview"
+    ]
+  },
+  {
+    "topic": "dsa",
+    "question": "Explain the time complexity of common sorting algorithms.",
+    "answer": "Bubble/Insertion/Selection Sort: O(n^2) average/worst. Merge Sort: O(n log n) always, O(n) extra space. Quick Sort: O(n log n) average, O(n^2) worst case, in-place. Heap Sort: O(n log n) in-place but not stable.",
+    "tags": [
+      "dsa",
+      "interview"
+    ]
+  },
+  {
+    "topic": "dsa",
+    "question": "What is a greedy algorithm?",
+    "answer": "A greedy algorithm builds a solution step-by-step, always choosing the locally optimal option at each step, hoping it leads to a global optimum. It works for problems with optimal substructure and the greedy-choice property (e.g., Dijkstra's algorithm, Huffman coding), but not all problems.",
+    "tags": [
+      "dsa",
+      "interview"
+    ]
+  },
+  {
+    "topic": "dsa",
+    "question": "What is the two-pointer technique?",
+    "answer": "It uses two indices moving through a data structure (often from opposite ends or at different speeds) to solve problems in O(n) time instead of O(n^2) \u2014 common in sorted array problems, palindrome checks, and cycle detection (e.g., Floyd's algorithm).",
+    "tags": [
+      "dsa",
+      "interview"
+    ]
+  },
+  {
+    "topic": "dsa",
+    "question": "What is a sliding window and when is it used?",
+    "answer": "A sliding window maintains a subset (window) of elements that expands/contracts over a sequence, used to efficiently solve subarray/substring problems (e.g., max sum subarray of size k, longest substring without repeating characters) in O(n) time instead of brute-force O(n^2).",
+    "tags": [
+      "dsa",
+      "interview"
+    ]
+  },
+  {
+    "topic": "dsa",
+    "question": "What is the difference between a heap and a balanced BST?",
+    "answer": "A heap (min or max) guarantees O(1) access to the min/max element and O(log n) insertion/removal, but doesn't support efficient arbitrary search or in-order traversal. A balanced BST supports O(log n) search, insertion, deletion, and in-order traversal, offering more general ordering operations.",
+    "tags": [
+      "dsa",
+      "interview"
+    ]
+  },
+  {
+    "topic": "dsa",
+    "question": "What is a trie and what is it used for?",
+    "answer": "A trie (prefix tree) stores strings character by character in a tree structure, enabling fast prefix-based lookups, autocomplete, and spell-checking, typically in O(m) time where m is the string length, independent of the number of stored strings.",
+    "tags": [
+      "dsa",
+      "interview"
+    ]
+  },
+  {
+    "topic": "dsa",
+    "question": "What is topological sorting?",
+    "answer": "Topological sort orders the vertices of a directed acyclic graph (DAG) such that for every edge u\u2192v, u comes before v. It's used for scheduling tasks with dependencies, and is typically computed via DFS or Kahn's algorithm (BFS with in-degree tracking).",
+    "tags": [
+      "dsa",
+      "interview"
+    ]
+  },
+  {
+    "topic": "dsa",
+    "question": "What is the difference between a Depth-First Search and backtracking?",
+    "answer": "DFS is a traversal strategy, exploring paths as deep as possible. Backtracking is a refinement of DFS used for constraint-satisfaction/search problems where invalid partial solutions are pruned early ('backtracked') to avoid exploring the full search space \u2014 e.g., N-Queens, Sudoku solving.",
+    "tags": [
+      "dsa",
+      "interview"
+    ]
+  },
+  {
+    "topic": "dsa",
+    "question": "What is the master theorem used for?",
+    "answer": "The master theorem provides a way to determine the time complexity of divide-and-conquer recurrences of the form T(n) = a*T(n/b) + f(n), by comparing f(n) to n^(log_b a), without needing to solve the recurrence manually.",
+    "tags": [
+      "dsa",
+      "interview"
+    ]
+  },
+  {
+    "topic": "os",
+    "question": "What is an amortized time complexity?",
+    "answer": "Amortized analysis averages the cost of an operation over a sequence of operations, even if individual operations occasionally take longer \u2014 e.g., dynamic array resizing is O(n) occasionally but O(1) amortized per insertion, since resizes happen infrequently relative to the number of insertions.",
+    "tags": [
+      "os",
+      "interview"
+    ]
+  },
+  {
+    "topic": "os",
+    "question": "What is the difference between a process and a thread?",
+    "answer": "A process is an independent program in execution with its own memory space, while a thread is a lightweight unit of execution within a process that shares the process's memory/resources with other threads, making thread creation and context switching cheaper than for processes.",
+    "tags": [
+      "os",
+      "interview"
+    ]
+  },
+  {
+    "topic": "os",
+    "question": "What is a context switch?",
+    "answer": "A context switch is when the CPU saves the state of a currently running process/thread and loads the state of another, allowing multitasking. It incurs overhead since register values, program counter, and memory mappings must be saved and restored.",
+    "tags": [
+      "os",
+      "interview"
+    ]
+  },
+  {
+    "topic": "os",
+    "question": "Explain the difference between multiprogramming, multitasking, and multithreading.",
+    "answer": "Multiprogramming keeps multiple programs in memory to keep the CPU busy by switching when one is waiting on I/O. Multitasking extends this to give the illusion of simultaneous execution via rapid context switching. Multithreading runs multiple threads within a single process concurrently, sharing memory space.",
+    "tags": [
+      "os",
+      "interview"
+    ]
+  },
+  {
+    "topic": "os",
+    "question": "What is a deadlock and what are its necessary conditions?",
+    "answer": "A deadlock is a state where processes are stuck waiting indefinitely for resources held by each other. The four necessary conditions are: mutual exclusion, hold and wait, no preemption, and circular wait \u2014 all must hold simultaneously for deadlock to occur.",
+    "tags": [
+      "os",
+      "interview"
+    ]
+  },
+  {
+    "topic": "os",
+    "question": "How can deadlocks be prevented or avoided?",
+    "answer": "Prevention breaks one of the four necessary conditions (e.g., requiring all resources upfront to avoid hold-and-wait). Avoidance uses algorithms like Banker's algorithm to only grant resource requests that keep the system in a safe state. Detection and recovery allow deadlocks but detect and resolve them (e.g., killing a process).",
+    "tags": [
+      "os",
+      "interview"
+    ]
+  },
+  {
+    "topic": "os",
+    "question": "What is the difference between paging and segmentation?",
+    "answer": "Paging divides memory into fixed-size blocks (pages/frames), eliminating external fragmentation but potentially causing internal fragmentation. Segmentation divides memory into variable-sized logical units (e.g., code, stack, heap) that map more naturally to program structure, but can suffer external fragmentation.",
+    "tags": [
+      "os",
+      "interview"
+    ]
+  },
+  {
+    "topic": "os",
+    "question": "What is virtual memory?",
+    "answer": "Virtual memory gives each process the illusion of a large, contiguous, private address space by mapping virtual addresses to physical memory (and disk) via page tables, enabling memory isolation, efficient multitasking, and running programs larger than physical RAM.",
+    "tags": [
+      "os",
+      "interview"
+    ]
+  },
+  {
+    "topic": "os",
+    "question": "What is thrashing?",
+    "answer": "Thrashing occurs when a system spends more time swapping pages in/out of memory than executing actual processes, typically due to insufficient physical memory for the active working sets, causing severe performance degradation.",
+    "tags": [
+      "os",
+      "interview"
+    ]
+  },
+  {
+    "topic": "os",
+    "question": "What is the difference between a mutex and a semaphore?",
+    "answer": "A mutex is a locking mechanism allowing only one thread to access a critical section at a time, owned by the thread that locks it. A semaphore is a signaling mechanism with a counter that can allow multiple threads access up to a limit, and can be released by a different thread than the one that acquired it.",
+    "tags": [
+      "os",
+      "interview"
+    ]
+  },
+  {
+    "topic": "os",
+    "question": "What is a race condition?",
+    "answer": "A race condition occurs when multiple threads/processes access shared data concurrently and the outcome depends on the unpredictable timing/order of execution, potentially leading to inconsistent or incorrect results. It's typically fixed with synchronization primitives like locks.",
+    "tags": [
+      "os",
+      "interview"
+    ]
+  },
+  {
+    "topic": "os",
+    "question": "What are the different CPU scheduling algorithms?",
+    "answer": "Common ones include First-Come-First-Served (FCFS), Shortest Job First (SJF), Priority Scheduling, Round Robin (time-sliced, fair for interactive systems), and Multilevel Queue/Feedback Queue scheduling, each balancing throughput, turnaround time, and fairness differently.",
+    "tags": [
+      "os",
+      "interview"
+    ]
+  },
+  {
+    "topic": "os",
+    "question": "What is the difference between preemptive and non-preemptive scheduling?",
+    "answer": "In preemptive scheduling, the OS can forcibly suspend a running process to give the CPU to another (e.g., Round Robin), improving responsiveness. In non-preemptive scheduling, a process runs to completion or until it voluntarily yields (e.g., FCFS), simpler but can cause poor responsiveness.",
+    "tags": [
+      "os",
+      "interview"
+    ]
+  },
+  {
+    "topic": "os",
+    "question": "What is a page fault?",
+    "answer": "A page fault occurs when a process accesses a page that isn't currently loaded in physical memory, triggering the OS to fetch it from disk (or handle an invalid access). Excessive page faults can severely degrade performance.",
+    "tags": [
+      "os",
+      "interview"
+    ]
+  },
+  {
+    "topic": "os",
+    "question": "What is the difference between internal and external fragmentation?",
+    "answer": "Internal fragmentation is wasted space within an allocated block due to fixed-size allocation units (e.g., unused space within a page). External fragmentation is wasted space between allocated blocks scattered across memory, making it hard to find contiguous free space even if total free memory is sufficient.",
+    "tags": [
+      "os",
+      "interview"
+    ]
+  },
+  {
+    "topic": "os",
+    "question": "What is a system call?",
+    "answer": "A system call is the mechanism by which a user-space program requests a service from the OS kernel (e.g., file I/O, process creation, memory allocation), transitioning the CPU from user mode to kernel mode to safely perform privileged operations.",
+    "tags": [
+      "os",
+      "interview"
+    ]
+  },
+  {
+    "topic": "os",
+    "question": "What is the difference between kernel mode and user mode?",
+    "answer": "Kernel mode allows unrestricted access to hardware and system resources, used by the OS kernel for critical operations. User mode restricts access to protect system stability/security, requiring system calls to request kernel services \u2014 this separation prevents user programs from crashing or compromising the whole system.",
+    "tags": [
+      "os",
+      "interview"
+    ]
+  },
+  {
+    "topic": "os",
+    "question": "What is a zombie process and an orphan process?",
+    "answer": "A zombie process has finished execution but still has an entry in the process table because its parent hasn't read its exit status yet. An orphan process is one whose parent has terminated before it, and it gets adopted by the init/system process.",
+    "tags": [
+      "os",
+      "interview"
+    ]
+  },
+  {
+    "topic": "os",
+    "question": "What is the difference between logical and physical addresses?",
+    "answer": "A logical (virtual) address is generated by the CPU during program execution and used by the process. A physical address is the actual location in RAM. The memory management unit (MMU) translates logical to physical addresses at runtime.",
+    "tags": [
+      "os",
+      "interview"
+    ]
+  },
+  {
+    "topic": "os",
+    "question": "What is a critical section and how is it protected?",
+    "answer": "A critical section is a code segment that accesses shared resources and must not be executed by more than one thread/process concurrently. It's protected using synchronization mechanisms like mutexes, semaphores, or monitors to ensure mutual exclusion.",
+    "tags": [
+      "os",
+      "interview"
+    ]
+  },
+  {
+    "topic": "dbms",
+    "question": "What is the difference between a monolithic kernel and a microkernel?",
+    "answer": "A monolithic kernel runs most OS services (file system, drivers, memory management) in kernel space as a single large program, offering better performance but less fault isolation. A microkernel keeps only essential services in kernel space, running others in user space as separate processes, improving modularity and fault isolation at some performance cost.",
+    "tags": [
+      "dbms",
+      "interview"
+    ]
+  },
+  {
+    "topic": "dbms",
+    "question": "What is normalization and why is it used?",
+    "answer": "Normalization is the process of organizing a database schema to reduce data redundancy and improve data integrity by dividing tables and defining relationships, following a series of normal forms (1NF, 2NF, 3NF, BCNF, etc.).",
+    "tags": [
+      "dbms",
+      "interview"
+    ]
+  },
+  {
+    "topic": "dbms",
+    "question": "Explain the differences between 1NF, 2NF, and 3NF.",
+    "answer": "1NF requires atomic column values and no repeating groups. 2NF requires 1NF plus no partial dependency (non-key attributes fully depend on the whole primary key, relevant for composite keys). 3NF requires 2NF plus no transitive dependency (non-key attributes depend only on the primary key, not on other non-key attributes).",
+    "tags": [
+      "dbms",
+      "interview"
+    ]
+  },
+  {
+    "topic": "dbms",
+    "question": "What is denormalization and when would you use it?",
+    "answer": "Denormalization intentionally introduces redundancy into a normalized schema to improve read performance by reducing the need for joins, often used in read-heavy analytical systems (data warehouses) where query speed matters more than write efficiency or storage.",
+    "tags": [
+      "dbms",
+      "interview"
+    ]
+  },
+  {
+    "topic": "dbms",
+    "question": "What are ACID properties?",
+    "answer": "Atomicity (all-or-nothing transaction execution), Consistency (transactions bring the database from one valid state to another), Isolation (concurrent transactions don't interfere with each other), and Durability (committed transactions persist even after a system failure).",
+    "tags": [
+      "dbms",
+      "interview"
+    ]
+  },
+  {
+    "topic": "dbms",
+    "question": "What is the difference between a primary key and a foreign key?",
+    "answer": "A primary key uniquely identifies each record in a table and cannot be null. A foreign key is a column (or set of columns) in one table that references the primary key of another table, enforcing referential integrity between related tables.",
+    "tags": [
+      "dbms",
+      "interview"
+    ]
+  },
+  {
+    "topic": "dbms",
+    "question": "What is the difference between INNER JOIN and LEFT JOIN?",
+    "answer": "INNER JOIN returns only rows with matching values in both tables. LEFT JOIN returns all rows from the left table, along with matched rows from the right table, filling in NULLs where there's no match.",
+    "tags": [
+      "dbms",
+      "interview"
+    ]
+  },
+  {
+    "topic": "dbms",
+    "question": "What is an index and how does it improve query performance?",
+    "answer": "An index is a data structure (commonly a B-tree or hash structure) that allows the database to quickly locate rows without scanning the entire table, significantly speeding up read/search queries at the cost of additional storage and slower writes (since indexes must be updated).",
+    "tags": [
+      "dbms",
+      "interview"
+    ]
+  },
+  {
+    "topic": "dbms",
+    "question": "What is the difference between clustered and non-clustered indexes?",
+    "answer": "A clustered index determines the physical storage order of table data (only one per table, since data can be sorted only one way). A non-clustered index is a separate structure that stores pointers to the actual data rows, and a table can have multiple non-clustered indexes.",
+    "tags": [
+      "dbms",
+      "interview"
+    ]
+  },
+  {
+    "topic": "dbms",
+    "question": "What are database transactions and why are they important?",
+    "answer": "A transaction is a sequence of operations executed as a single logical unit of work that either fully completes (commit) or fully fails (rollback), ensuring data integrity, especially critical in systems handling concurrent operations like banking or e-commerce.",
+    "tags": [
+      "dbms",
+      "interview"
+    ]
+  },
+  {
+    "topic": "dbms",
+    "question": "What is the difference between DELETE, TRUNCATE, and DROP?",
+    "answer": "DELETE removes specific rows based on a condition, is logged and can be rolled back, and can trigger row-level triggers. TRUNCATE removes all rows quickly with minimal logging (usually can't be selectively filtered). DROP removes the entire table structure along with its data permanently.",
+    "tags": [
+      "dbms",
+      "interview"
+    ]
+  },
+  {
+    "topic": "dbms",
+    "question": "What is a deadlock in a database context and how is it resolved?",
+    "answer": "A database deadlock occurs when two or more transactions hold locks the other needs, creating a circular wait. The database management system typically detects this via a wait-for graph and resolves it by aborting/rolling back one of the transactions (the 'victim').",
+    "tags": [
+      "dbms",
+      "interview"
+    ]
+  },
+  {
+    "topic": "dbms",
+    "question": "What are the different types of database isolation levels?",
+    "answer": "Read Uncommitted (lowest, allows dirty reads), Read Committed (prevents dirty reads), Repeatable Read (prevents dirty and non-repeatable reads), and Serializable (highest, prevents dirty reads, non-repeatable reads, and phantom reads) \u2014 higher isolation reduces concurrency anomalies but can reduce throughput.",
+    "tags": [
+      "dbms",
+      "interview"
+    ]
+  },
+  {
+    "topic": "dbms",
+    "question": "What is a stored procedure?",
+    "answer": "A stored procedure is a precompiled set of SQL statements stored in the database that can be executed as a single callable unit, improving performance (less network round-trips, precompilation), code reuse, and security (restricting direct table access).",
+    "tags": [
+      "dbms",
+      "interview"
+    ]
+  },
+  {
+    "topic": "dbms",
+    "question": "What is the difference between a view and a table?",
+    "answer": "A table stores actual data physically. A view is a virtual table defined by a stored SQL query that dynamically presents data (often joined/filtered from one or more tables) without storing the data itself, useful for simplifying complex queries and enforcing access control.",
+    "tags": [
+      "dbms",
+      "interview"
+    ]
+  },
+  {
+    "topic": "dbms",
+    "question": "What is a composite key?",
+    "answer": "A composite key is a primary key made up of two or more columns that together uniquely identify a row, used when no single column can guarantee uniqueness on its own.",
+    "tags": [
+      "dbms",
+      "interview"
+    ]
+  },
+  {
+    "topic": "dbms",
+    "question": "What is the difference between OLTP and OLAP systems?",
+    "answer": "OLTP (Online Transaction Processing) systems handle many short, frequent read/write transactions (e.g., order processing), optimized for speed and consistency. OLAP (Online Analytical Processing) systems handle complex analytical queries over large historical datasets (e.g., data warehouses), optimized for read-heavy aggregation and reporting.",
+    "tags": [
+      "dbms",
+      "interview"
+    ]
+  },
+  {
+    "topic": "dbms",
+    "question": "What is a trigger in SQL?",
+    "answer": "A trigger is a stored procedure that automatically executes in response to specific events (INSERT, UPDATE, DELETE) on a table, commonly used for enforcing business rules, auditing changes, or maintaining derived/summary data.",
+    "tags": [
+      "dbms",
+      "interview"
+    ]
+  },
+  {
+    "topic": "dbms",
+    "question": "What is database replication?",
+    "answer": "Replication maintains copies of data across multiple database servers to improve availability, fault tolerance, and read scalability. Changes on a primary (master) node are propagated to replica (slave) nodes, synchronously or asynchronously.",
+    "tags": [
+      "dbms",
+      "interview"
+    ]
+  },
+  {
+    "topic": "dbms",
+    "question": "What is the N+1 query problem and how do you avoid it?",
+    "answer": "It occurs when an application executes one query to fetch a list of records, then an additional query per record to fetch related data, resulting in N+1 total queries instead of a single optimized join or batch query \u2014 avoided by using eager loading, JOINs, or batched IN queries.",
+    "tags": [
+      "dbms",
+      "interview"
+    ]
+  },
+  {
+    "topic": "dbms",
+    "question": "What is the difference between a natural key and a surrogate key?",
+    "answer": "A natural key is a real-world attribute that uniquely identifies a record (e.g., email address, SSN), while a surrogate key is a system-generated, meaningless identifier (e.g., auto-increment ID or UUID) used purely to uniquely identify rows, providing stability even if natural attributes change.",
+    "tags": [
+      "dbms",
+      "interview"
+    ]
+  }
+]
