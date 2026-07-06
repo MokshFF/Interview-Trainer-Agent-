@@ -94,10 +94,10 @@ class InterviewEngine:
                             break
                     break
         
-        # If the user is submitting an answer to a question we asked, evaluate it
         is_greeting = self._looks_like_greeting(message)
         is_navigating = any(word in message.lower() for word in ["next", "more", "continue", "another", "skip"])
         
+        # If the user is submitting an answer to a question we asked, evaluate it
         if last_question_doc and not is_greeting and not is_navigating and len(message.split()) > 3:
             expected_answer = last_question_doc.get("answer", "")
             eval_res = self.score_service.score_response(message, [expected_answer])
@@ -113,8 +113,8 @@ class InterviewEngine:
                 f"Would you like to try another question? You can ask for a topic (e.g., 'give me a question on AI' or 'system design')."
             )
 
-        # 2. Greeting Handler
-        if is_greeting or (len(message.split()) <= 3 and not is_navigating):
+        # 2. Greeting Handler (Only if first message or explicitly a greeting)
+        if is_greeting or not history:
             return self._pick_variant(
                 [
                     f"Hi there! What role at {company} are you preparing for, and what is your experience level?",
@@ -125,7 +125,19 @@ class InterviewEngine:
                 history,
             )
 
-        # 3. Question Request Handler
+        # 3. Informational / Q&A Query Handler (Respond like ChatGPT using RAG context)
+        is_informational = any(word in message.lower() for word in [
+            "what", "how", "why", "explain", "describe", "difference", "define", "concept", "versus", "vs", "tell"
+        ])
+        if is_informational and documents:
+            best_doc = documents[0]
+            return (
+                f"Here is the explanation for **{best_doc.get('question')}**:\n\n"
+                f"{best_doc.get('answer')}\n\n"
+                f"Hope this helps! Let me know if you want to practice mock questions on this topic."
+            )
+
+        # 4. Question Request Handler
         is_requesting_question = is_navigating or any(word in message.lower() for word in ["question", "interview", "mock", "questions", "test", "practice"])
         if is_requesting_question:
             retrieved_docs = documents
@@ -143,15 +155,25 @@ class InterviewEngine:
                     f"Take your time to formulate an answer and type it below. I will evaluate your response!"
                 )
             
-            # Local fallback if JSON documents are missing
             return (
                 "Here is a behavioral question for you:\n\n"
                 "👉 **Tell me about a time you solved a challenging technical problem.**\n\n"
                 "Type your response below and I'll grade it!"
             )
 
-        # 4. Profile / Job Update Handler
-        return f"Got it! I will tailor the interview coaching for a {role} role at {company} ({experience}). Would you like to start a mock interview? Just type 'ask me a question' or select a topic to begin."
+        # 5. General Acknowledgment / Short Chat Handler
+        if len(message.split()) <= 3 and any(word in message.lower() for word in ["yes", "no", "ok", "okay", "sure", "thanks", "thank you", "fine", "cool", "agree"]):
+            return "Great! Let's keep moving. What topic or question would you like to focus on next? (e.g. AI, System Design, behavioral, etc.)"
+
+        # 6. Profile / Job Update Handler
+        role_keywords = ["engineer", "developer", "scientist", "analyst", "manager", "programmer", "designer", "consultant", "architect", "tech", "eng"]
+        is_job_update = any(word in message.lower() for word in role_keywords) or role != profile.get("target_role")
+        
+        if is_job_update:
+            return f"Got it! I will tailor the interview coaching for a {role} role at {company} ({experience}). Would you like to start a mock interview? Just type 'ask me a question' or select a topic to begin."
+        else:
+            return f"I see. Let's keep practicing! Would you like a question on a technical topic, HR, or behavioral scenarios? Tell me what you'd like to do next."
+
 
 
     def _generate_with_model_or_fallback(self, message: str, profile: dict, documents: list[dict], history: list[dict]) -> str:
